@@ -130,7 +130,73 @@
         &= \frac{1}{3} \Big( \frac{2}{3} \Big)^{y / (1 - y)}, \ y \in \Big\{\frac{k}{k + 1}: k \in \mathbb{N}_0 \Big\}.
     \end{align*}
     
+    % Question 4
+    \item \begin{enumerate}
+        \item It is not hard to see that $f(x) \geq 0 \ \forall x \in \mathcal{X}$ as both piecewise functions are 
+        exponentials. We also have 
+        \begin{align*}
+            \int_{-\infty}^{\infty} f(x) \ dx 
+            &= \int_{-\infty}^{0} \frac{1}{2}\lambda e^{\lambda x} 
+            + \int_{0}^{\infty} \frac{1}{2}\lambda e^{-\lambda x} \ dx \\
+            &= \Big[frac{1}{2}e^{lambda x} \Big]_{-\infty}^{0} + \Big[ -\frac{1}{2}e^{-\lambda x} \Big]_{0}^{\infty} \\
+            &= \frac{1}{2} + \frac{1}{2} \\
+            &= 1.
+        \end{align*}
 
+        \item For $t \leq 0$, 
+        \begin{align*}
+            P(X < t) 
+            &= \int_{-\infty}^{t} \frac{1}{2}\lambda e^{\lambda x} \ dx \\
+            &= \Big[ \frac{1}{2}e^{\lambda x} \Big]_{\-\infty}^{t} \\
+            &= \frac{1}{2}e^{\lambda t}.
+        \end{align*}
+        For $t > 0$,
+        \begin{align*}
+            P (X < t) 
+            &= \frac{1}{2} + \int_{0}^{t} \frac{1}{2}\lambda e^{-\lambda x} \ dx \\
+            &= \frac{1}{2} + \Big[ -\frac{1}{2}e^{-\lambda x} \Big]_{0}^{t} \\
+            &= \frac{1}{2} + (-\frac{1}{2}e^{-\lambda t} + \frac{1}{2}) \\
+            &= 1 - \frac{1}{2}e^{-\lambda t}.
+        \end{align*}
+
+        \item For $t \leq 0, \ P(|X| < t) = 0$. For $t > 0$,
+        \begin{align*}
+            P(|X| < t)
+            &= P(-t < X < t) \\
+            &= \int_{-t}^{0} \frac{1}{2}\lambda e^{\lambda x} \ dx 
+            + \int_{0}^{t} \frac{1}{2}\lambda e^{-\lambda x} \ dx \\
+            &= \Big[ \frac{1}{2}e^{\lambda x} \Big]_{-t}^{0} + \Big[ \frac{1}{2}e^{-\lambda x} \Big]_{0}^{t} \\
+            &= \frac{1}{2} - \frac{1}{2}e^{-\lambda t} + (-\frac{1}{2}e^{-\lambda t} + \frac{1}{2}) \\
+            &= 1 - e^{-\lambda t}.
+        \end{align*}
+    \end{enumerate}
+
+    % Question 5
+    \item Let $A_0 = \{\pi\}, A_1 = (0, \frac{\pi}{2}), A_2 = (\frac{\pi}{2}, \pi), A_3 = (\pi, \frac{3\pi}{2}), 
+    A_4 = (\frac{3\pi}{2}, 2\pi)$, and let $g(x) = g_i(x) = \sin^2{x}$. Then for each $A_i (i \neq 0), g_i(x) = g(x) 
+    \forall x \in A_i,$, $g_i(x)$ is monotone on $A_i$. Moreover, $\mathcal{Y} = (0, 1)$ is the same for all $i$, and 
+    monotone on $A_i$, and 
+    \[
+    g^{-1}(y) = \arcsin{(\sqrt{x})} \implies \frac{d}{dy}g^{-1}(y) = \frac{1}{2\sqrt{y(1 - y)}}
+    \]
+    is continuous on $\mathcal{Y}$ for all $i$. Then by Theorem 2.1.8,
+    \begin{align*}
+        f_{Y}(y) 
+        &= \sum_{i = 1}^{4} f_{X}(g^{-1}(y)) \Big| \frac{d}{dy}g_{i}^{-1}(y) \Big| \\
+        &= 4 \cdot \frac{1}{2\pi} \cdot \Big| \frac{1}{2\sqrt{y(1 - y)}} \Big| \\
+        &= \frac{1}{\pi\sqrt{y(1 - y)}}, \ y \in (0, 1).
+    \end{align*}
+    To use the cdf from (2.1.6), we first get that $x_1 = \arcsin{(\sqrt{y})}, x_2 = \pi - \arcsin{(\sqrt{y})}$. Note 
+    \[ P(Y \leq y) = 2P(X \leq x_1) + 2P(X \leq \pi) - 2P(X \leq x_2) \]
+    Then by differentiating the above we get 
+    \begin{align*}
+        f_{Y}(y)
+        &= 2f_{X}(x_1) \cdot \frac{d}{dy}(\sin^{-1}{\sqrt{y}}) 
+        - 2f_{X}(x_2) \cdot \frac{d}{dy}(\pi - \sin^{-1}{\sqrt{y}}) \\
+        &= 2 \cdot \frac{1}{2\pi} \cdot \frac{1}{2\sqrt{y(1 - y)}} 
+        - 2 \cdot \frac{1}{2\pi} \cdot (-\frac{1}{2\sqrt{y(1 - y)}}) \\
+        &= \frac{1}{\pi\sqrt{y(1 - y)}}, \ y \in (0, 1).
+    \end{align*}
 \end{enumerate}
 
 \end{document}
