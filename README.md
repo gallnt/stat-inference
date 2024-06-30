@@ -1,2 +1,2 @@
 # stat-inference
-This repo is dedicated for the answers to the exercises in Statistical Inference Second Edition written by Casella & Berger. Please point out for mistakes!
+Dedicated for the answer to every question for _Statistical Inference Second Edition_ by Casella and Berger. Please point out for any mistakes!
