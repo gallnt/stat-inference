@@ -254,6 +254,51 @@
             &= 
         \end{align*}
     \end{enumerate}
+
+    % 2.8
+    \item \begin{enumerate}
+        \item It is easy to see that 
+        \[ \lim_{x \to -\infty} F_{X}(x) = 0, \ \lim_{x \to +\infty} F_{X}(x) = 1. \]
+        Moreover, both $0$ and $1-e^{-x}$ are non-decreasing on their respective intervals, and 
+        \[ \lim_{x \to 0^+} F_{X}(x) = 0 \]
+        so that $F_X$ is right continuous and therefore is a valud cdf. Its inverse is 
+        \[ F_{X}^{-1}(y) = -\ln{(1 - y)}\]
+
+        \item Again, we can see that 
+        \[ \lim_{x \to -\infty} F_{X}(x) = 0, \ \lim_{x \to +\infty} F_{X}(x) = 1. \]
+        $e^{x} / 2, 1 - (e^{-x} / 2)$ are increasing, and $1/2$ is noncreasing on their respective intervals, and 
+        \[ \lim_{x \to 0} F_{X}(x) = \frac{1}{2}, \ \lim_{x \to 1} F_{X}(x) = \frac{1}{2} \]
+        so that $F_X$ is continuous hence right continuous so is a valid cdf. Its inverse is
+        \[ F_{X}^s{-1}(y) = \begin{cases}
+            \ln{(2x)} & 0 < y < \frac{1}{2} \\
+            -\ln{(2-2x)} & \frac{1}{2} \leq y < 1.
+        \end{cases} \]
+
+        \item Again, we can see that 
+        \[ \lim_{x \to -\infty} F_{X}(x) = 0, \ \lim_{x \to +\infty} F_{X}(x) = 1. \]
+        $e^{x}/4, 1 - (e^{-x} / 4)$ are both increasing on their respective intervals, and 
+        \[ \lim_{x \to 0^+} F_{X}(x) = \frac{3}{4} = F_{X}(0) \]
+        so that $F_X$ is right continuous and therefore is a valid cdf. Its inverse is 
+        \[ F_{X}^{-1}(y) = \begin{cases}
+            \ln{(4x)} & 0 < y < \frac{1}{4} \\
+            -\ln{(4-4x)} & \frac{3}{4} \leq y < 1
+        \end{cases}\]
+    \end{enumerate}
+
+    % 2.9
+    We first find the cdf of $X$:
+    \[ F_{X}(x) = \begin{cases}
+        0 & x \leq 1 \\
+        \frac{1}{4}(x - 1)^2 & 1 < x < 3 \\
+        1 & x \geq 3
+    \end{cases} \]
+    Then we have 
+    \[ \lim_{x \to 1} F_{X}(x) = 0, \ \lim_{x \to 3} F_{X}(x) = 1. \]
+    hence $X$ has a continuous cdf. Let $u(x) = F_{X}(x)$. Then $u(x)$ is nondecreasing and by Theorem 2.1.10, 
+    $Y = u(X)$ has a uniform distribution.
+
+    % 2.10
+    
 \end{enumerate}
 
 \end{document}
