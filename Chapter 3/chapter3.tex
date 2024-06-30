@@ -1,0 +1,45 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{Statistical Inference Chapter 3}
+\author{Gallant Tsao}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+    % 3.1
+    \item We first note that the pmf of $X$ is 
+    \[ p_X(x) = \frac{1}{N_1 - N_0 + 1}, \ x \in \{N_0, N_0 + 1, ..., N_1\}. \]
+    Then we get the expectation to be 
+    \begin{align*}
+        \mathbb{E}[X]
+        &= \sum_{x = N_0}^{N_1} x\frac{1}{N_1 - N_0 + 1} \\
+        &= \frac{1}{N_1 - N_0 + 1} \cdot \frac{N_1 - N_0 + 1}{2} (2N_0 + (N_1 - N_0 + 1 - 1)) \\
+        &= \frac{N_1 + N_0}{2}.
+    \end{align*}
+    As for the variance, we get 
+    \begin{align*}
+        \mathbb{E}[X^2]
+        &= \sum_{x = N_0}^{N_1} x^2 \frac{1}{N_1 - N_0 + 1} \\ 
+        &= \frac{1}{N_1 - N_0 + 1} \Big( \sum_{x = 1}^{N_1}x^2 - \sum_{x = 1}^{N_0 - 1} x^2 \Big) \\
+        &= \frac{1}{N_1 - N_0 + 1} \Big( \frac{N_1(N_1 + 1)(N_1 + 2) - (N_0 - 1)(N_0)(2N_0 - 1)}{6} \Big) \\
+    \end{align*}
+    So that 
+    \begin{align*}
+        Var(X)
+        &= \mathbb{E}[X^2] - (\mathbb{E}[X])^2 \\
+        &= 1
+    \end{align*}
+
+    % 3.2
+    \item Let $X = $ number of defective parts in the sample. Then \\
+    $X \approx \text{Hypergeometric}(100, M, K)$.
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}
