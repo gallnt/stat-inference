@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage[margin=1.5in]{geometry}
 
 \title{Statistical Inference Chapter 1}
 \author{Gallant Tsao}
@@ -22,14 +23,163 @@
     % 1.2
     \item \begin{enumerate}
         \item \begin{align*}
-            x \in A-B 
-            &\implies x \in A \text{ and } x \notin B \\
-            &\implies x \in A \text{ and } x \notin A \cup B \\
-            &= s
+            x \in A \setminus B 
+            &\iff x \in A \text{ and } x \notin B \\
+            &\iff x \in A \text{ and } x \notin A \cap B \\
+            &\iff x \in A \setminus (A \cap B).
+        \end{align*}
+        Also, 
+        \begin{align*}
+            x \in A \setminus B
+            &\iff x \in A \text{ and } x \notin B \\
+            &\iff x \in A \text{ and } x \in B^{c} \\
+            &\iff x \in A \cap B^{c}.
+        \end{align*}
+        Therefore $A \setminus B = A \setminus (A \cap B) = A \cap B^{c}$.
+
+        \item By the distributive law, \begin{align*}
+            (B \cap A) \cup (B \cap A^{c}) 
+            &= B \cap (A \cup A^c) \\
+            &= B.
         \end{align*}
 
-        \item part b)
+        \item \begin{align*}
+            x \in B \setminus A
+            &\iff x \in B \text{ and } x \notin A \\
+            &\iff x \in B \text{ and } x \in A^c \\
+            &\iff x \in B \cap A^c.
+        \end{align*}
+
+        \item From part b), we have \begin{align*}
+            A \cup B
+            &= A \cup ((B \cap A) \cup (B \cap A^c)) \\
+            &= A \cup (B \cap A) \cup A \cup (B \cap A^c) \\
+            &= A \cup A \cup (B \cap A^c) \\
+            &= A \cup (B \cap A^c).
+        \end{align*}
     \end{enumerate}
+
+    % 1.3
+    \item \begin{enumerate}
+        \item \begin{align*}
+            x \in A \cup B 
+            &\iff x \in A \text{ or } x \in B \\
+            &\iff x \in B \cup A. \\
+            x \in A \cap B
+            &\iff x \in A \text{ and } x \in B \\
+            &\iff x in B \cap A.
+        \end{align*}
+
+        \item \begin{align*}
+            x \in A \cup (B \cup C) 
+            &= x \in A \text{ or } x \in B \cup C \\
+            &= x \in A \cup B \text{ or } x \in C \\
+            &= x \in (A \cup B) \cup C.
+        \end{align*}
+
+        \item \begin{align*}
+            x \in (A \cup B)^{c}
+            &\iff x \notin A \cup B \\
+            &\iff x \in A^c \text{ and } x \in B^c \\
+            &\iff x \in A^c \cap B^c. \\
+            x \in (A \cap B)^c
+            &\iff x \notin A \cap B \\
+            &\iff x \in A^c \text{ or } x \in B^c \\
+            &\iff x \in A^c \cup B^c.
+        \end{align*}
+    \end{enumerate}
+
+    % 1.4
+    \item \begin{enumerate}
+        \item This is $P(A \cup B)$, so we get $P(A) + P(B) - P(A \cap B)$.
+        \item This is $P(A \Delta B)$, so we get $P(A) + P(B) - 2P(A \cap B)$.
+        \item This is again $P(A \cup B)$, so we get $P(A) + P(B) - P(A \cap B)$.
+        \item This is $P((A \cap B)^c)$, so we get $1 - P(A \cap B)$.
+    \end{enumerate}
+
+    % 1.5
+    \item \begin{enumerate}
+        \item $A \cap B \cap C = \{ \text{a U.S. birth resulting in identtical twin females} \}$.
+        \item $P(A \cap B \cap C) = \frac{1}{90} \cdot \frac{1}{3} \cdot \frac{1}{2} 
+        = \frac{1}{540}$.
+    \end{enumerate}
+
+    % 1.6
+    \item $p_0 = (1 - u)(1 - w), p_1 = u(1 - w) + w(1 - u), p_2 = uw$. For them to be equal, 
+    \begin{align*}
+        p_0 = p_2 
+        &\implies 1 - u - w + uw = uw \\
+        &\implies u + w = 1, \\
+        p_1 = p_2
+        &\implies u + w - 2uw = uw \\
+        &\implies uw = \frac{1}{3}.
+    \end{align*}
+    The above two equations imply $u(1 - u) = \frac{1}{3}$, which has no real solutions in 
+    $\mathbb{R}$. Therefore we can't choose such $u, w$ satisfying $p_0 = p_1 = p_2$.
+    % 1.7
+    \item \begin{enumerate}
+        \item This is just having an extra case of hitting outside of the dart board. So 
+        \[ P(\text{scoring } i \text{ points}) = \begin{cases}
+            1 - \frac{\pi r^2}{A} & i = 0 \\
+            \frac{\pi r^2}{A} \cdot \frac{1}{5^2} ((6 - i)^2 - (5 - i)^2) & i = 1, ..., 5
+        \end{cases} \]
+
+        \item \begin{align*}
+            P(\text{scoring } i \text{ points}|\text{board is hit})
+            &= \frac{P(\text{scoring } i \text{ points, board is hit})}
+            {P(\text{board is hit})} \\
+            &= \frac{\pi r^2}{A} \cdot \frac{1}{5^2} ((6 - i)^2 - (5 - i)^2) 
+            / \frac{\pi r^2}{A} \\
+            &= \frac{1}{5^2} ((6 - i)^2 - (5 - i)^2), \ i = 1, ..., 5
+        \end{align*}
+        For $i = 0$, we will definitely score given that we hit the board so \\
+        $P(\text{scoring 0 points} | \text{board is hit}) = 0$, which is consistent with the 
+        probability distribution in Example 1.2.7 as well.
+    \end{enumerate}
+
+    % 1.8
+    \item \begin{enumerate}
+        \item From the example given, \[
+            P(\text{scoring } i \text{ points}) = \frac{(6 - i)^2 - (5 - i)^2}{5^2}, i = 1, ..., 5.
+            \]
+
+        \item Expanding the above, 
+        \[ \frac{(6 - i)^2 - (5 - i)^2}{5^2} = \frac{11 - 2i}{r^2}, \]
+        which is a decreasing function of $i$.
+
+        \item \[
+        \frac{11 - 2i}{5^2} > 0 \text{for } i = 1, ..., 5
+        \]
+        hence the first axiom is satisfied.
+        \[ P(S) = P(\text{hitting the board}) = 1, \]
+        hence the second axiom is satisfied. For $i \neq j$,
+        \[ P(i \cup j) = \text{Area of ring } i + \text{Area of ring } j 
+        = P(i) + P(j), \]
+        hence the third axiom is satisfied so $P(\text{scoring } i \text{ points})$ 
+        is a probability function.
+    \end{enumerate}
+    
+    % 1.9
+    \begin{enumerate}
+        \item Suppose $x \in (\cup_{\alpha} A_{\alpha})^c$. Then $x \notin A_{\alpha}$ for all 
+        $\alpha \in \Gamma$ so $x \in A_{\alpha}^{c}$ for all $\alpha \in \Gamma$. Therefore 
+        $x \in \cap_{\alpha} A_{\alpha}$.
+
+        Now suppose $x \in \cap_{\alpha} A_{\alpha}^{c}$. Then for all $\alpha \in \Gamma$, 
+        $x \in A_{\alpha}^{c}$ hence $x \notin A_{\alpha}$, then 
+        $x \notin \cup_{\alpha} A_{\alpha}$ so $x \in (\cup_{\alpha} A_{\alpha})^{c}$.
+
+        \item Suppose $x \in (\cap_{\alpha} A_{\alpha})^{c}$. Then 
+        $x \notin \cap_{\alpha} A_{\alpha}$ so $x \notin A_{\alpha}$ for some 
+        $\alpha \in \Gamma$. Then $x \in A_{\alpha}^{c}$ for some $\alpha \in \Gamma$. 
+        Therefore $x \in \cup_{\alpha} A_{\alpha}^{c}$.
+
+        Now suppose $x \in \cup_{\alpha} A_{\alpha}^{c}$. Then $x \in A_{\alpha}^{c}$ for some 
+        $\alpha \in \Gamma$ so $x \notin A_{\alpha}$ for some $\alpha \in \Gamma$. Then 
+        $x \notin \cap_{\alpha}$ thus $x \in (\cap_{\alpha})^{c}$.
+    \end{enumerate}
+
+    % 1.10
 \end{enumerate}
 
 \end{document}
