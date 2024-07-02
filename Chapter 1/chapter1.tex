@@ -99,7 +99,7 @@
 
     % 1.5
     \item \begin{enumerate}
-        \item $A \cap B \cap C = \{ \text{a U.S. birth resulting in identtical twin females} \}$.
+        \item $A \cap B \cap C = \{ \text{a U.S. birth resulting in identical twin females} \}$.
         \item $P(A \cap B \cap C) = \frac{1}{90} \cdot \frac{1}{3} \cdot \frac{1}{2} 
         = \frac{1}{540}$.
     \end{enumerate}
@@ -160,7 +160,7 @@
     \end{enumerate}
     
     % 1.9
-    \begin{enumerate}
+    \item \begin{enumerate}
         \item Suppose $x \in (\cup_{\alpha} A_{\alpha})^c$. Then $x \notin A_{\alpha}$ for all 
         $\alpha \in \Gamma$ so $x \in A_{\alpha}^{c}$ for all $\alpha \in \Gamma$. Therefore 
         $x \in \cap_{\alpha} A_{\alpha}$.
@@ -180,6 +180,130 @@
     \end{enumerate}
 
     % 1.10
+    \item We have \[
+    \Big( \bigcup_{i = 1}^{n} A_i \Big)^{c} = \bigcap_{i = 1}^{n} A_{i}^{c}, \
+    \Big( \bigcap_{i = 1}^{n} A_i \Big)^{c} = \bigcup_{i = 1}^{n} A_{i}^{c}
+    \]
+    Proof of first equality: \\
+    Suppose $x \in (\cup_{i = 1}^{n} A_i)^c$. Then $x \notin \cup_{i = 1}^{n} A_i$ so 
+    $x \notin A_i$ for all $i$, meaning $x \in A_{i}^{c}$ for all $i$. Therefore 
+    $x \in \cap_{i = 1}^{n} A_{i}^{c}$. 
+    Now suppose $x \in \cap_{i = 1}^{n} A_{i}^{c}$. 
+    Then $x \notin A_i$ for all $i$, hence $x \notin \cup_{i = 1}^{n} A_{i}$, hence 
+    $x \in (\cup_{i = 1}^{n} A_i)^c$.
+
+    Proof of second equality: \\
+    Suppose $x \in (\cap_{i = 1}^{n} A_i)^{c}$. Then $x \notin \cap_{i = 1}^{n} A_i$ so 
+    $x \notin A_i$ and so $x \in A_{i}^{c}$ for some $i$, meaning 
+    $x \in \cup_{i = 1}^{n} A_i^c$. 
+    Now suppose $x \in \cup_{i = 1}^{n} A_i^c$. Then $x \notin A_i$ for some $i$ hence 
+    $x \in (\cap_{i = 1}^{n} A_i)^{c}$.
+
+    % 1.11
+    \item \begin{enumerate}
+        \item $\emptyset \in \mathcal{B}$ hence property 1 is satisfied. 
+        $\emptyset^{c} = S \in \mathcal{B}, \ S^{c} = \emptyset \in \mathcal{B}$ hence 
+        property 2 is satisfied. $\emptyset \cup S = S \in \mathcal{B}$ hence property 
+        3 is satisfied so $\mathcal{B}$ is a sigma algebra.
+        
+        \item $\emptyset$ is a subset of $S$ hence $\emptyset \in \mathcal{B}$ hence property 
+        1 is satisfied. For any set $A \in \mathcal{B}, \ A^{c} = S \setminus A \in B$ hence 
+        property 2 is satisfied. Any finite union of elements in $\mathcal{B}$ will be a 
+        subset of $S$, which will be in $\mathcal{B}$ so $\mathcal{B}$ is a sigma algebra.
+
+        \item Suppose $\mathcal{F}_1, \mathcal{F}_2$ are sigma algebras on the sample space
+        $S$. Since $\emptyset \in \mathcal{F}_1$ and $\emptyset \in \mathcal{F}_2$, 
+        $\emptyset \in \mathcal{F}_1 \cap \mathcal{F}_2$ so property 1 is satisfied. 
+        Suppose $A \subseteq \mathcal{F}_1 \cap \mathcal{F}_2$. Then $A \subseteq \mathcal{F}_1$ 
+        and $A \subseteq \mathcal{F}_2$. Since $\mathcal{F}_1, \mathcal{F}_2$ are both sigma 
+        algebras, $A^{c} \in \mathcal{F}_1$ and $A^{c} \in \mathcal{F}_2$. Therefore 
+        $A^{c} \in \mathcal{F}_1 \cap \mathcal{F}_2$ so property 2 is satisfied.
+        Suppose $A_1, A_2, \dots \in \mathcal{F}_1 \cap \mathcal{F}_2$. Then 
+        $A_i \in \mathcal{F}_1$ and $A_i \in \mathcal{F}_2$. Since $\mathcal{F}_1, 
+        \mathcal{F}_2$ are both sigma algebras, $\cup_{i} A_i \in \mathcal{F}_1$ and 
+        $\cup_{i} A_i \in \mathcal{F}_2$ hence $\cup_{i} A_i \in \mathcal{F}_1 
+        \cap \mathcal{F}_2$ hence property 3 is satisfied so $\mathcal{F}_1 \cap \mathcal{F}_2$ 
+        is a sigma algebra.
+    \end{enumerate}
+
+    % 1.12
+    \item \begin{enumerate}
+        \item 12.1
+    \end{enumerate}
+
+    % 1.13
+    \item $A, B$ cannot be disjoint. If they are, \[
+        P(A \cup B) = P(A) + P(B) = \frac{1}{3} + \frac{1}{4} = \frac{13}{12} > 1,
+    \]
+    which is not possible.
+
+    % 1.14
+    \item For each element, we can choose to include it or exclude it in the subset. Since there 
+    are $n$ elements, the number of subsets that can be formed is $2^{n}$. A more formal proof 
+    can be done using bijections.
+
+    % 1.15
+    \item Now that the base case of $k = 2$ has been done, assume that this is true for $k$ 
+    seperate tasks. Then for each of the $n_1 \times n_2 \times \cdots \times n_k$ ways, we 
+    have $n_{k + 1}$ choices for the $(k + 1)$th task. Therefore the entire job can be done in 
+    \[ \underbrace{1 \times n_{k + 1} + 1 \times n_{k + 1} + \dots + 1 \times n_{k + 1}}
+    _{n_1 \times ... \times n_k \text{ terms}} = n_1 n_2 \cdots n_{k + 1}. \]
+
+    % 1.16
+    \item \begin{enumerate}
+        \item $26^3$
+        \item $26^3 + 26^2$
+        \item $26^4 + 26^3 + 26^2$
+    \end{enumerate}
+
+    % 1.17
+    \item This is just choosing 2 numbers out of $n$ of them, which is $\binom{n}{2} 
+    = \frac{n(n + 1)}{2}$.
+
+    % 1.18
+    \item There are a total of $n^n$ ways of putting $n$ balls into $n$ cells. For exactly one 
+    cell to be empty, there will also be another cell which has exactly 2 balls in it. Therefore 
+    there are $\binom{n}{2}$ ways of picking these special buckets. Since the order of putting 
+    in the balls matters, the answer is $\binom{n}{2}n! / n^n$.
+
+    % 1.19
+    \begin{enumerate}
+        \item By part (b), this is $\binom{6}{4} = 15$.
+
+        \item We can consider the $n$ variables as bins, and the $r$ partial derivatives as 
+        balls. Then we are putting $r$ unlabeled balls into $n$ unlabeled bins. There are a 
+        total of $\binom{n + r - 1}{n - 1} = \binom{n + r - 1}{r}$ ways of doing this.    
+    \end{enumerate}
+
+    % 1.20
+    \item First of all, there are many different ways such that there is at least one call per day. Staying consistent with Casella's answers, if there is 6 calls on 1 day and 1 call on 
+    the other six days, we will denote this configuration as 6111111. All possible configs and 
+    the number of ways to form them are shown in the table below:
+    \[ \begin{tabular}{|l|l|r|}
+        \hline
+        \text{Config} & \text{Number of Ways} & \text{Answer} \\ 
+        \hline
+        6111111 & $7\binom{12}{7} \cdot 6!$ & 4656960 \\
+        5211111 & $7\binom{12}{5} \cdot 6\binom{7}{2} \cdot 5! $ & 82825280 \\
+        4221111 & $7\binom{12}{4} \cdot \binom{6}{2}\binom{8}{2}\binom{6}{2} \cdot 4!$ 
+        & 523908000 \\
+        4311111 & $7\binom{12}{4} \cdot 6\binom{8}{3} \cdot 5! $ & 139708800 \\
+        3321111 & $\binom{7}{2}\binom{12}{3}\binom{9}{3} \cdot 5\binom{6}{2} \cdot 4!$ 
+        & 698544000 \\
+        3222111 & $7\binom{12}{3} \cdot \binom{6}{3}\binom{9}{2}\binom{7}{2}\binom{5}{2} \cdot 3!$ 
+        & 1397088000 \\
+        2222211 & $\binom{7}{5}\binom{12}{2}\binom{10}{2}\binom{8}{2}\binom{6}{2}\binom{4}{2}
+        \cdot 2!$ & 314344800 \\
+        Total & & 3162075840 \\
+        \hline
+    \end{tabular} \]
+    For example, for the config 6111111, there are $\binom{12}{6}$ ways for picking the calls 
+    for the day with 6 calls, 7 ways for the 6-call day to be in, and $6!$ ways for rearranging 
+    the rest of the 1-call days. A similar reasoning follows for the rest of the configs as well.
+    All in all, the answer is about
+    \[ \frac{3162075840}{7^{12}} \approx 0.2285. \]
+
+    % 1.21
 \end{enumerate}
 
 \end{document}
