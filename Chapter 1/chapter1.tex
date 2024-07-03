@@ -267,7 +267,7 @@
     in the balls matters, the answer is $\binom{n}{2}n! / n^n$.
 
     % 1.19
-    \begin{enumerate}
+    \item \begin{enumerate}
         \item By part (b), this is $\binom{6}{4} = 15$.
 
         \item We can consider the $n$ variables as bins, and the $r$ partial derivatives as 
@@ -304,6 +304,104 @@
     \[ \frac{3162075840}{7^{12}} \approx 0.2285. \]
 
     % 1.21
+    \item There are $\binom{2n}{2r}$ ways of choosing the shoes. For there to be no matching pair, 
+    there are $\binom{n}{2r}$ ways of choosing, and for each choice within the $2r$ shoes, it can 
+    be either a left or right foot so there is a factor of $2^{2r}$. Therefore out final answer is 
+    $\binom{n}{2r}2^{2r} / \binom{2n}{2r}$.
+
+    % 1.22
+    \item \begin{enumerate}
+        \item We need 15 days from each month, hence our answer is 
+        \[ \frac{\binom{31}{15}\binom{30}{15}\cdots\binom{31}{15}}{\binom{366}{180}} 
+        \approx 0.167 \times 10^{-8}. \]
+
+        \item We can just exclude the days from September so our answer is 
+        $\binom{336}{30} / \binom{366}{30}.$
+    \end{enumerate}
+
+    % 1.23
+    \item There can be 0 to $n$ heads for both players, which are disjoint events. Therefore 
+    \begin{align*}
+        P(\text{Same number of heads}) 
+        &= \Big[ \sum_{x = 0}^{n} \binom{n}{x} \Big(\frac{1}{2} \Big)^{x} 
+        \Big(\frac{1}{2} \Big)^{n - x}\Big]^2 \\
+        &= \Big( \frac{1}{4} \Big)^{n} \sum_{x = 0}^{n} \binom{n}{x}^{2} \\
+        &= \binom{2n}{n} \Big( \frac{1}{4} \Big)^{n}.
+    \end{align*}
+    (Note that the summation ends up in $\binom{2n}{n}$ as one can think about this being 
+    equivalent to choosing $n$ people from $2n$ people: We divide the $2n$ people into two 
+    groups of $n$ people. We can pick $k$ people from the first group and pick $n - k$ from 
+    the second group. A more formal proof uses generating functions.)
+
+    % 1.24
+    \begin{enumerate}
+        \item Player A can win on the 1st, 3rd, ..., toss. We have 
+        \begin{align*}
+            P(\text{A wins}) 
+            &= \sum_{k = 1}^{\infty} P(\text{A wins on } k \text{th toss}) \\
+            &= \sum_{k = 1}^{\infty} \frac{1}{2} \Big( \frac{1}{2} \Big)^{2k - 2} \\
+            &= \frac{2}{3}.
+        \end{align*}
+
+        \item With the same idea as above, 
+        \begin{align*}
+            P(\text{A wins}) 
+            &= \sum_{k = 1}^{\infty} P(\text{A wins on } k \text{th toss}) \\
+            &= \sum_{k = 1}^{\infty} p (1 - p)^{2k - 2} \\
+            &= \frac{p}{1 - (1-p)^2}.
+        \end{align*}
+
+        \item Taking the derivative with respect to p, 
+        \[ \frac{d}{dp} \frac{p}{1 - (1-p)^2} = \frac{p^2}{(1 - (1 - p)^2)^2} > 0. \]
+        Therefore this function is an increasing function in $p$, and its minimum occurs at 
+        $p = 0$. By L'Hopital's rule we have 
+        \[ \lim_{p \to 0^+} \frac{p}{1 - (1 - p)^2} = \frac{1}{2}, \]
+        hence for $p \in (0, 1), \ P(\text{A wins}) > \frac{1}{2}$.
+    \end{enumerate}
+
+    % 1.25
+    Suppose that the order matters for the two children. Then 
+    \begin{align*}
+        &\qquad P(\text{Both children are boys | at least one is a boy}) \\
+        &= \frac{P(\text{Both children are boys, at least one is a boy})}
+        {P(\text{At least one is a boy})} \\
+        &= \frac{1}{3}.
+    \end{align*}
+
+    % 1.26
+    Let $X$ be the number of tosses until a 6 appears. Then $X \sim \text{Geom}(\frac{1}{6})$.
+    \begin{align*}
+        P(X > 5) 
+        &= 1 - P(X \leq 4) \\
+        &= 1 - \sum_{k = 0}^{4} \frac{1}{6} \Big( \frac{5}{6} \Big)^{k} \\
+        &= ...
+    \end{align*}
+
+    % 1.27
+    \begin{enumerate}
+        \item If $n$ is odd, each $k$ term cancels out with the $n - k$ term so the statement 
+        is correct. If $n$ is even, by Pascal's identity, 
+
+        \item By the Binomial Theorem, we have 
+        \[ (1 + x)^{n} = \sum_{k = 0}^{n} \binom{n}{k}x^{k}. \]
+        Taking derivatives with respect to x both sides gives 
+        \[ n(1 + x)^{n - 1} = \sum_{k = 0}^{n} k \binom{n}{k}x^{k-1}.\]
+        Plugging in $x = 1$ gives the result.
+
+        \item \begin{align*}
+            \sum_{k = 1}^{n} (-1)^{k + 1} k\binom{n}{k}
+            &= \sum_{k = 1}^{n} (-1)^{k + 1} n\binom{n - 1}{k - 1} \\
+            &= n\sum_{j = 0}^{n} (-1)^{j} \binom{n - 1}{j} \\
+            &= 0 \quad (\text{From part a.})
+        \end{align*}
+        Here we used the formula $k\binom{n}{k} = n\binom{n - 1}{k - 1}, k > 0$.
+    \end{enumerate}
+
+    % 1.28
+    \item 
+
+    % 1.29
+    \item 
 \end{enumerate}
 
 \end{document}
