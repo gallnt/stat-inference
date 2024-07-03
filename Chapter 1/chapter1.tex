@@ -334,7 +334,7 @@
     the second group. A more formal proof uses generating functions.)
 
     % 1.24
-    \begin{enumerate}
+    \item \begin{enumerate}
         \item Player A can win on the 1st, 3rd, ..., toss. We have 
         \begin{align*}
             P(\text{A wins}) 
@@ -360,7 +360,7 @@
     \end{enumerate}
 
     % 1.25
-    Suppose that the order matters for the two children. Then 
+    \item Suppose that the order matters for the two children. Then 
     \begin{align*}
         &\qquad P(\text{Both children are boys | at least one is a boy}) \\
         &= \frac{P(\text{Both children are boys, at least one is a boy})}
@@ -369,7 +369,8 @@
     \end{align*}
 
     % 1.26
-    Let $X$ be the number of tosses until a 6 appears. Then $X \sim \text{Geom}(\frac{1}{6})$.
+    \item Let $X$ be the number of tosses until a 6 appears. Then 
+    $X \sim \text{Geom}(\frac{1}{6})$.
     \begin{align*}
         P(X > 5) 
         &= 1 - P(X \leq 4) \\
@@ -378,7 +379,7 @@
     \end{align*}
 
     % 1.27
-    \begin{enumerate}
+    \item \begin{enumerate}
         \item If $n$ is odd, each $k$ term cancels out with the $n - k$ term so the statement 
         is correct. If $n$ is even, by Pascal's identity, 
 
@@ -398,10 +399,50 @@
     \end{enumerate}
 
     % 1.28
-    \item 
+    \item We have that 
+    \[ \int_{0}^{n} \log{x} \ dx = [x\log{x} - x]_{0}^{n} = n\log{n} - n. \]
+    \begin{align*}
+        \int_{1}^{n + 1} \log{x} \ dx 
+        &= [x\log{x} - x]_{1}^{n + 1} \\
+        &= (n + 1)\log{(n + 1)} - (n + 1) - (\log{1} - 1) \\
+        &= (n + 1)\log{(n + 1)} - n.
+    \end{align*}
+    Then we get the average of the two integrals to be 
+    \begin{align*}
+        \frac{1}{2} \Big( \int_{0}^{n} \log{x} \ dx + \int_{1}^{n + 1} \log{x} \ dx \Big)
+        &= \frac{1}{2}(n\log{n} - n + (n + 1)\log{(n + 1)} - n) \\
+        &\approx (n + \frac{1}{2})\log{n} - n
+    \end{align*}
+    Define the sequence $a_n = \log{(n!)} - (n + \frac{1}{2})\log{n} - n$. Then for the 
+    problem, it is enough to show that $\lim_{n \to \infty} a_n = c$ for some nonzero constant 
+    $c$. To avoid the factorial, consider 
+    \[ a_n - a_{n + 1} = \]
 
     % 1.29
-    \item 
+    \item \begin{enumerate}
+        \item Ordered samples of {4, 4, 12, 12}: \\
+        $(4, 4, 12, 12), (4, 12, 4, 12), (4, 12, 12, 4), (12, 4, 4, 12), (12, 4, 12, 4), 
+        (12, 12, 4, 4)$. \\
+        Ordered Samples of {2, 9, 9, 12}: \\
+        $(2, 9, 9, 12), (2, 9, 12, 9), (2, 12, 9, 9), (9, 2, 9, 12), (9, 2, 12, 9), 
+        (12, 2, 9, 9), \\ (9, 9, 2, 12), (9, 12, 2, 9), (12, 9, 2, 9), (9, 9, 12, 2), 
+        (9, 12, 9, 2), (12, 9, 9, 2)$.
+
+        \item Same as part a.
+        
+        \item There are a total of $6^6$ ways of drawing an ordered sample with replacement from 
+        ${1, 2, 7, 8, 14, 20}$. There are $\frac{6!}{2!2!} = 180$ ways of forming the ordered 
+        sample ${2, 7, 7, 8, 14, 14}$. Therefore the probability of getting the specific 
+        unordered sample is just $\frac{180}{6^6}$. 
+
+        \item There are $k!$ ways of ordering the sample. For each number, the order with a 
+        different number is considered the same sample. Therefore the answer is 
+        \[ \frac{k!}{k_1!k_2!\cdots k_m!}. \]
+
+        \item We can think of the $m$ distinct numbers as $m$ bins, and creating a sample of 
+        size $k$ with replacement as putting $k$ balls in the $m$ bins. From before, we 
+        already know that there are a total of $\binom{k + m - 1}{k}$ ways of doing this.
+    \end{enumerate}
 \end{enumerate}
 
 \end{document}
