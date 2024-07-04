@@ -23,12 +23,12 @@
     % 1.2
     \item \begin{enumerate}
         \item \begin{align*}
-            x \in A \setminus B 
+            x \in A \setminus B
             &\iff x \in A \text{ and } x \notin B \\
             &\iff x \in A \text{ and } x \notin A \cap B \\
             &\iff x \in A \setminus (A \cap B).
         \end{align*}
-        Also, 
+        Also,
         \begin{align*}
             x \in A \setminus B
             &\iff x \in A \text{ and } x \notin B \\
@@ -38,7 +38,7 @@
         Therefore $A \setminus B = A \setminus (A \cap B) = A \cap B^{c}$.
 
         \item By the distributive law, \begin{align*}
-            (B \cap A) \cup (B \cap A^{c}) 
+            (B \cap A) \cup (B \cap A^{c})
             &= B \cap (A \cup A^c) \\
             &= B.
         \end{align*}
@@ -62,7 +62,7 @@
     % 1.3
     \item \begin{enumerate}
         \item \begin{align*}
-            x \in A \cup B 
+            x \in A \cup B
             &\iff x \in A \text{ or } x \in B \\
             &\iff x \in B \cup A. \\
             x \in A \cap B
@@ -71,7 +71,7 @@
         \end{align*}
 
         \item \begin{align*}
-            x \in A \cup (B \cup C) 
+            x \in A \cup (B \cup C)
             &= x \in A \text{ or } x \in B \cup C \\
             &= x \in A \cup B \text{ or } x \in C \\
             &= x \in (A \cup B) \cup C.
@@ -100,25 +100,25 @@
     % 1.5
     \item \begin{enumerate}
         \item $A \cap B \cap C = \{ \text{a U.S. birth resulting in identical twin females} \}$.
-        \item $P(A \cap B \cap C) = \frac{1}{90} \cdot \frac{1}{3} \cdot \frac{1}{2} 
+        \item $P(A \cap B \cap C) = \frac{1}{90} \cdot \frac{1}{3} \cdot \frac{1}{2}
         = \frac{1}{540}$.
     \end{enumerate}
 
     % 1.6
-    \item $p_0 = (1 - u)(1 - w), p_1 = u(1 - w) + w(1 - u), p_2 = uw$. For them to be equal, 
+    \item $p_0 = (1 - u)(1 - w), p_1 = u(1 - w) + w(1 - u), p_2 = uw$. For them to be equal,
     \begin{align*}
-        p_0 = p_2 
+        p_0 = p_2
         &\implies 1 - u - w + uw = uw \\
         &\implies u + w = 1, \\
         p_1 = p_2
         &\implies u + w - 2uw = uw \\
         &\implies uw = \frac{1}{3}.
     \end{align*}
-    The above two equations imply $u(1 - u) = \frac{1}{3}$, which has no real solutions in 
+    The above two equations imply $u(1 - u) = \frac{1}{3}$, which has no real solutions in
     $\mathbb{R}$. Therefore we can't choose such $u, w$ satisfying $p_0 = p_1 = p_2$.
     % 1.7
     \item \begin{enumerate}
-        \item This is just having an extra case of hitting outside of the dart board. So 
+        \item This is just having an extra case of hitting outside of the dart board. So
         \[ P(\text{scoring } i \text{ points}) = \begin{cases}
             1 - \frac{\pi r^2}{A} & i = 0 \\
             \frac{\pi r^2}{A} \cdot \frac{1}{5^2} ((6 - i)^2 - (5 - i)^2) & i = 1, ..., 5
@@ -128,12 +128,12 @@
             P(\text{scoring } i \text{ points}|\text{board is hit})
             &= \frac{P(\text{scoring } i \text{ points, board is hit})}
             {P(\text{board is hit})} \\
-            &= \frac{\pi r^2}{A} \cdot \frac{1}{5^2} ((6 - i)^2 - (5 - i)^2) 
+            &= \frac{\pi r^2}{A} \cdot \frac{1}{5^2} ((6 - i)^2 - (5 - i)^2)
             / \frac{\pi r^2}{A} \\
             &= \frac{1}{5^2} ((6 - i)^2 - (5 - i)^2), \ i = 1, ..., 5
         \end{align*}
         For $i = 0$, we will definitely score given that we hit the board so \\
-        $P(\text{scoring 0 points} | \text{board is hit}) = 0$, which is consistent with the 
+        $P(\text{scoring 0 points} | \text{board is hit}) = 0$, which is consistent with the
         probability distribution in Example 1.2.7 as well.
     \end{enumerate}
 
@@ -143,7 +143,7 @@
             P(\text{scoring } i \text{ points}) = \frac{(6 - i)^2 - (5 - i)^2}{5^2}, i = 1, ..., 5.
             \]
 
-        \item Expanding the above, 
+        \item Expanding the above,
         \[ \frac{(6 - i)^2 - (5 - i)^2}{5^2} = \frac{11 - 2i}{r^2}, \]
         which is a decreasing function of $i$.
 
@@ -153,29 +153,29 @@
         hence the first axiom is satisfied.
         \[ P(S) = P(\text{hitting the board}) = 1, \]
         hence the second axiom is satisfied. For $i \neq j$,
-        \[ P(i \cup j) = \text{Area of ring } i + \text{Area of ring } j 
+        \[ P(i \cup j) = \text{Area of ring } i + \text{Area of ring } j
         = P(i) + P(j), \]
-        hence the third axiom is satisfied so $P(\text{scoring } i \text{ points})$ 
+        hence the third axiom is satisfied so $P(\text{scoring } i \text{ points})$
         is a probability function.
     \end{enumerate}
-    
+
     % 1.9
     \item \begin{enumerate}
-        \item Suppose $x \in (\cup_{\alpha} A_{\alpha})^c$. Then $x \notin A_{\alpha}$ for all 
-        $\alpha \in \Gamma$ so $x \in A_{\alpha}^{c}$ for all $\alpha \in \Gamma$. Therefore 
+        \item Suppose $x \in (\cup_{\alpha} A_{\alpha})^c$. Then $x \notin A_{\alpha}$ for all
+        $\alpha \in \Gamma$ so $x \in A_{\alpha}^{c}$ for all $\alpha \in \Gamma$. Therefore
         $x \in \cap_{\alpha} A_{\alpha}$.
 
-        Now suppose $x \in \cap_{\alpha} A_{\alpha}^{c}$. Then for all $\alpha \in \Gamma$, 
-        $x \in A_{\alpha}^{c}$ hence $x \notin A_{\alpha}$, then 
+        Now suppose $x \in \cap_{\alpha} A_{\alpha}^{c}$. Then for all $\alpha \in \Gamma$,
+        $x \in A_{\alpha}^{c}$ hence $x \notin A_{\alpha}$, then
         $x \notin \cup_{\alpha} A_{\alpha}$ so $x \in (\cup_{\alpha} A_{\alpha})^{c}$.
 
-        \item Suppose $x \in (\cap_{\alpha} A_{\alpha})^{c}$. Then 
-        $x \notin \cap_{\alpha} A_{\alpha}$ so $x \notin A_{\alpha}$ for some 
-        $\alpha \in \Gamma$. Then $x \in A_{\alpha}^{c}$ for some $\alpha \in \Gamma$. 
+        \item Suppose $x \in (\cap_{\alpha} A_{\alpha})^{c}$. Then
+        $x \notin \cap_{\alpha} A_{\alpha}$ so $x \notin A_{\alpha}$ for some
+        $\alpha \in \Gamma$. Then $x \in A_{\alpha}^{c}$ for some $\alpha \in \Gamma$.
         Therefore $x \in \cup_{\alpha} A_{\alpha}^{c}$.
 
-        Now suppose $x \in \cup_{\alpha} A_{\alpha}^{c}$. Then $x \in A_{\alpha}^{c}$ for some 
-        $\alpha \in \Gamma$ so $x \notin A_{\alpha}$ for some $\alpha \in \Gamma$. Then 
+        Now suppose $x \in \cup_{\alpha} A_{\alpha}^{c}$. Then $x \in A_{\alpha}^{c}$ for some
+        $\alpha \in \Gamma$ so $x \notin A_{\alpha}$ for some $\alpha \in \Gamma$. Then
         $x \notin \cap_{\alpha}$ thus $x \in (\cap_{\alpha})^{c}$.
     \end{enumerate}
 
@@ -185,44 +185,44 @@
     \Big( \bigcap_{i = 1}^{n} A_i \Big)^{c} = \bigcup_{i = 1}^{n} A_{i}^{c}
     \]
     Proof of first equality: \\
-    Suppose $x \in (\cup_{i = 1}^{n} A_i)^c$. Then $x \notin \cup_{i = 1}^{n} A_i$ so 
-    $x \notin A_i$ for all $i$, meaning $x \in A_{i}^{c}$ for all $i$. Therefore 
-    $x \in \cap_{i = 1}^{n} A_{i}^{c}$. 
-    Now suppose $x \in \cap_{i = 1}^{n} A_{i}^{c}$. 
-    Then $x \notin A_i$ for all $i$, hence $x \notin \cup_{i = 1}^{n} A_{i}$, hence 
+    Suppose $x \in (\cup_{i = 1}^{n} A_i)^c$. Then $x \notin \cup_{i = 1}^{n} A_i$ so
+    $x \notin A_i$ for all $i$, meaning $x \in A_{i}^{c}$ for all $i$. Therefore
+    $x \in \cap_{i = 1}^{n} A_{i}^{c}$.
+    Now suppose $x \in \cap_{i = 1}^{n} A_{i}^{c}$.
+    Then $x \notin A_i$ for all $i$, hence $x \notin \cup_{i = 1}^{n} A_{i}$, hence
     $x \in (\cup_{i = 1}^{n} A_i)^c$.
 
     Proof of second equality: \\
-    Suppose $x \in (\cap_{i = 1}^{n} A_i)^{c}$. Then $x \notin \cap_{i = 1}^{n} A_i$ so 
-    $x \notin A_i$ and so $x \in A_{i}^{c}$ for some $i$, meaning 
-    $x \in \cup_{i = 1}^{n} A_i^c$. 
-    Now suppose $x \in \cup_{i = 1}^{n} A_i^c$. Then $x \notin A_i$ for some $i$ hence 
+    Suppose $x \in (\cap_{i = 1}^{n} A_i)^{c}$. Then $x \notin \cap_{i = 1}^{n} A_i$ so
+    $x \notin A_i$ and so $x \in A_{i}^{c}$ for some $i$, meaning
+    $x \in \cup_{i = 1}^{n} A_i^c$.
+    Now suppose $x \in \cup_{i = 1}^{n} A_i^c$. Then $x \notin A_i$ for some $i$ hence
     $x \in (\cap_{i = 1}^{n} A_i)^{c}$.
 
     % 1.11
     \item \begin{enumerate}
-        \item $\emptyset \in \mathcal{B}$ hence property 1 is satisfied. 
-        $\emptyset^{c} = S \in \mathcal{B}, \ S^{c} = \emptyset \in \mathcal{B}$ hence 
-        property 2 is satisfied. $\emptyset \cup S = S \in \mathcal{B}$ hence property 
+        \item $\emptyset \in \mathcal{B}$ hence property 1 is satisfied.
+        $\emptyset^{c} = S \in \mathcal{B}, \ S^{c} = \emptyset \in \mathcal{B}$ hence
+        property 2 is satisfied. $\emptyset \cup S = S \in \mathcal{B}$ hence property
         3 is satisfied so $\mathcal{B}$ is a sigma algebra.
-        
-        \item $\emptyset$ is a subset of $S$ hence $\emptyset \in \mathcal{B}$ hence property 
-        1 is satisfied. For any set $A \in \mathcal{B}, \ A^{c} = S \setminus A \in B$ hence 
-        property 2 is satisfied. Any finite union of elements in $\mathcal{B}$ will be a 
+
+        \item $\emptyset$ is a subset of $S$ hence $\emptyset \in \mathcal{B}$ hence property
+        1 is satisfied. For any set $A \in \mathcal{B}, \ A^{c} = S \setminus A \in B$ hence
+        property 2 is satisfied. Any finite union of elements in $\mathcal{B}$ will be a
         subset of $S$, which will be in $\mathcal{B}$ so $\mathcal{B}$ is a sigma algebra.
 
         \item Suppose $\mathcal{F}_1, \mathcal{F}_2$ are sigma algebras on the sample space
-        $S$. Since $\emptyset \in \mathcal{F}_1$ and $\emptyset \in \mathcal{F}_2$, 
-        $\emptyset \in \mathcal{F}_1 \cap \mathcal{F}_2$ so property 1 is satisfied. 
-        Suppose $A \subseteq \mathcal{F}_1 \cap \mathcal{F}_2$. Then $A \subseteq \mathcal{F}_1$ 
-        and $A \subseteq \mathcal{F}_2$. Since $\mathcal{F}_1, \mathcal{F}_2$ are both sigma 
-        algebras, $A^{c} \in \mathcal{F}_1$ and $A^{c} \in \mathcal{F}_2$. Therefore 
+        $S$. Since $\emptyset \in \mathcal{F}_1$ and $\emptyset \in \mathcal{F}_2$,
+        $\emptyset \in \mathcal{F}_1 \cap \mathcal{F}_2$ so property 1 is satisfied.
+        Suppose $A \subseteq \mathcal{F}_1 \cap \mathcal{F}_2$. Then $A \subseteq \mathcal{F}_1$
+        and $A \subseteq \mathcal{F}_2$. Since $\mathcal{F}_1, \mathcal{F}_2$ are both sigma
+        algebras, $A^{c} \in \mathcal{F}_1$ and $A^{c} \in \mathcal{F}_2$. Therefore
         $A^{c} \in \mathcal{F}_1 \cap \mathcal{F}_2$ so property 2 is satisfied.
-        Suppose $A_1, A_2, \dots \in \mathcal{F}_1 \cap \mathcal{F}_2$. Then 
-        $A_i \in \mathcal{F}_1$ and $A_i \in \mathcal{F}_2$. Since $\mathcal{F}_1, 
-        \mathcal{F}_2$ are both sigma algebras, $\cup_{i} A_i \in \mathcal{F}_1$ and 
-        $\cup_{i} A_i \in \mathcal{F}_2$ hence $\cup_{i} A_i \in \mathcal{F}_1 
-        \cap \mathcal{F}_2$ hence property 3 is satisfied so $\mathcal{F}_1 \cap \mathcal{F}_2$ 
+        Suppose $A_1, A_2, \dots \in \mathcal{F}_1 \cap \mathcal{F}_2$. Then
+        $A_i \in \mathcal{F}_1$ and $A_i \in \mathcal{F}_2$. Since $\mathcal{F}_1,
+        \mathcal{F}_2$ are both sigma algebras, $\cup_{i} A_i \in \mathcal{F}_1$ and
+        $\cup_{i} A_i \in \mathcal{F}_2$ hence $\cup_{i} A_i \in \mathcal{F}_1
+        \cap \mathcal{F}_2$ hence property 3 is satisfied so $\mathcal{F}_1 \cap \mathcal{F}_2$
         is a sigma algebra.
     \end{enumerate}
 
@@ -238,14 +238,14 @@
     which is not possible.
 
     % 1.14
-    \item For each element, we can choose to include it or exclude it in the subset. Since there 
-    are $n$ elements, the number of subsets that can be formed is $2^{n}$. A more formal proof 
+    \item For each element, we can choose to include it or exclude it in the subset. Since there
+    are $n$ elements, the number of subsets that can be formed is $2^{n}$. A more formal proof
     can be done using bijections.
 
     % 1.15
-    \item Now that the base case of $k = 2$ has been done, assume that this is true for $k$ 
-    seperate tasks. Then for each of the $n_1 \times n_2 \times \cdots \times n_k$ ways, we 
-    have $n_{k + 1}$ choices for the $(k + 1)$th task. Therefore the entire job can be done in 
+    \item Now that the base case of $k = 2$ has been done, assume that this is true for $k$
+    seperate tasks. Then for each of the $n_1 \times n_2 \times \cdots \times n_k$ ways, we
+    have $n_{k + 1}$ choices for the $(k + 1)$th task. Therefore the entire job can be done in
     \[ \underbrace{1 \times n_{k + 1} + 1 \times n_{k + 1} + \dots + 1 \times n_{k + 1}}
     _{n_1 \times ... \times n_k \text{ terms}} = n_1 n_2 \cdots n_{k + 1}. \]
 
@@ -257,110 +257,110 @@
     \end{enumerate}
 
     % 1.17
-    \item This is just choosing 2 numbers out of $n$ of them, which is $\binom{n}{2} 
+    \item This is just choosing 2 numbers out of $n$ of them, which is $\binom{n}{2}
     = \frac{n(n + 1)}{2}$.
 
     % 1.18
-    \item There are a total of $n^n$ ways of putting $n$ balls into $n$ cells. For exactly one 
-    cell to be empty, there will also be another cell which has exactly 2 balls in it. Therefore 
-    there are $\binom{n}{2}$ ways of picking these special buckets. Since the order of putting 
+    \item There are a total of $n^n$ ways of putting $n$ balls into $n$ cells. For exactly one
+    cell to be empty, there will also be another cell which has exactly 2 balls in it. Therefore
+    there are $\binom{n}{2}$ ways of picking these special buckets. Since the order of putting
     in the balls matters, the answer is $\binom{n}{2}n! / n^n$.
 
     % 1.19
     \item \begin{enumerate}
         \item By part (b), this is $\binom{6}{4} = 15$.
 
-        \item We can consider the $n$ variables as bins, and the $r$ partial derivatives as 
-        balls. Then we are putting $r$ unlabeled balls into $n$ unlabeled bins. There are a 
-        total of $\binom{n + r - 1}{n - 1} = \binom{n + r - 1}{r}$ ways of doing this.    
+        \item We can consider the $n$ variables as bins, and the $r$ partial derivatives as
+        balls. Then we are putting $r$ unlabeled balls into $n$ unlabeled bins. There are a
+        total of $\binom{n + r - 1}{n - 1} = \binom{n + r - 1}{r}$ ways of doing this.
     \end{enumerate}
 
     % 1.20
-    \item First of all, there are many different ways such that there is at least one call per day. Staying consistent with Casella's answers, if there is 6 calls on 1 day and 1 call on 
-    the other six days, we will denote this configuration as 6111111. All possible configs and 
-    the number of ways to form them are shown in the table below:
+    \item First of all, there are many different ways such that there is at least one call per day. Staying consistent
+    with Casella's answers, if there is 6 calls on 1 day and 1 call on the other six days, we will denote this
+    configuration as 6111111. All possible configs and the number of ways to form them are shown in the table below:
     \[ \begin{tabular}{|l|l|r|}
         \hline
-        \text{Config} & \text{Number of Ways} & \text{Answer} \\ 
+        \text{Config} & \text{Number of Ways} & \text{Answer} \\
         \hline
         6111111 & $7\binom{12}{7} \cdot 6!$ & 4656960 \\
         5211111 & $7\binom{12}{5} \cdot 6\binom{7}{2} \cdot 5! $ & 82825280 \\
-        4221111 & $7\binom{12}{4} \cdot \binom{6}{2}\binom{8}{2}\binom{6}{2} \cdot 4!$ 
+        4221111 & $7\binom{12}{4} \cdot \binom{6}{2}\binom{8}{2}\binom{6}{2} \cdot 4!$
         & 523908000 \\
         4311111 & $7\binom{12}{4} \cdot 6\binom{8}{3} \cdot 5! $ & 139708800 \\
-        3321111 & $\binom{7}{2}\binom{12}{3}\binom{9}{3} \cdot 5\binom{6}{2} \cdot 4!$ 
+        3321111 & $\binom{7}{2}\binom{12}{3}\binom{9}{3} \cdot 5\binom{6}{2} \cdot 4!$
         & 698544000 \\
-        3222111 & $7\binom{12}{3} \cdot \binom{6}{3}\binom{9}{2}\binom{7}{2}\binom{5}{2} \cdot 3!$ 
+        3222111 & $7\binom{12}{3} \cdot \binom{6}{3}\binom{9}{2}\binom{7}{2}\binom{5}{2} \cdot 3!$
         & 1397088000 \\
         2222211 & $\binom{7}{5}\binom{12}{2}\binom{10}{2}\binom{8}{2}\binom{6}{2}\binom{4}{2}
         \cdot 2!$ & 314344800 \\
         Total & & 3162075840 \\
         \hline
     \end{tabular} \]
-    For example, for the config 6111111, there are $\binom{12}{6}$ ways for picking the calls 
-    for the day with 6 calls, 7 ways for the 6-call day to be in, and $6!$ ways for rearranging 
+    For example, for the config 6111111, there are $\binom{12}{6}$ ways for picking the calls
+    for the day with 6 calls, 7 ways for the 6-call day to be in, and $6!$ ways for rearranging
     the rest of the 1-call days. A similar reasoning follows for the rest of the configs as well.
     All in all, the answer is about
     \[ \frac{3162075840}{7^{12}} \approx 0.2285. \]
 
     % 1.21
-    \item There are $\binom{2n}{2r}$ ways of choosing the shoes. For there to be no matching pair, 
-    there are $\binom{n}{2r}$ ways of choosing, and for each choice within the $2r$ shoes, it can 
-    be either a left or right foot so there is a factor of $2^{2r}$. Therefore out final answer is 
+    \item There are $\binom{2n}{2r}$ ways of choosing the shoes. For there to be no matching pair,
+    there are $\binom{n}{2r}$ ways of choosing, and for each choice within the $2r$ shoes, it can
+    be either a left or right foot so there is a factor of $2^{2r}$. Therefore out final answer is
     $\binom{n}{2r}2^{2r} / \binom{2n}{2r}$.
 
     % 1.22
     \item \begin{enumerate}
-        \item We need 15 days from each month, hence our answer is 
-        \[ \frac{\binom{31}{15}\binom{30}{15}\cdots\binom{31}{15}}{\binom{366}{180}} 
+        \item We need 15 days from each month, hence our answer is
+        \[ \frac{\binom{31}{15}\binom{30}{15}\cdots\binom{31}{15}}{\binom{366}{180}}
         \approx 0.167 \times 10^{-8}. \]
 
-        \item We can just exclude the days from September so our answer is 
+        \item We can just exclude the days from September so our answer is
         $\binom{336}{30} / \binom{366}{30}.$
     \end{enumerate}
 
     % 1.23
-    \item There can be 0 to $n$ heads for both players, which are disjoint events. Therefore 
+    \item There can be 0 to $n$ heads for both players, which are disjoint events. Therefore
     \begin{align*}
-        P(\text{Same number of heads}) 
-        &= \Big[ \sum_{x = 0}^{n} \binom{n}{x} \Big(\frac{1}{2} \Big)^{x} 
+        P(\text{Same number of heads})
+        &= \Big[ \sum_{x = 0}^{n} \binom{n}{x} \Big(\frac{1}{2} \Big)^{x}
         \Big(\frac{1}{2} \Big)^{n - x}\Big]^2 \\
         &= \Big( \frac{1}{4} \Big)^{n} \sum_{x = 0}^{n} \binom{n}{x}^{2} \\
         &= \binom{2n}{n} \Big( \frac{1}{4} \Big)^{n}.
     \end{align*}
-    (Note that the summation ends up in $\binom{2n}{n}$ as one can think about this being 
-    equivalent to choosing $n$ people from $2n$ people: We divide the $2n$ people into two 
-    groups of $n$ people. We can pick $k$ people from the first group and pick $n - k$ from 
+    (Note that the summation ends up in $\binom{2n}{n}$ as one can think about this being
+    equivalent to choosing $n$ people from $2n$ people: We divide the $2n$ people into two
+    groups of $n$ people. We can pick $k$ people from the first group and pick $n - k$ from
     the second group. A more formal proof uses generating functions.)
 
     % 1.24
     \item \begin{enumerate}
-        \item Player A can win on the 1st, 3rd, ..., toss. We have 
+        \item Player A can win on the 1st, 3rd, ..., toss. We have
         \begin{align*}
-            P(\text{A wins}) 
+            P(\text{A wins})
             &= \sum_{k = 1}^{\infty} P(\text{A wins on } k \text{th toss}) \\
             &= \sum_{k = 1}^{\infty} \frac{1}{2} \Big( \frac{1}{2} \Big)^{2k - 2} \\
             &= \frac{2}{3}.
         \end{align*}
 
-        \item With the same idea as above, 
+        \item With the same idea as above,
         \begin{align*}
-            P(\text{A wins}) 
+            P(\text{A wins})
             &= \sum_{k = 1}^{\infty} P(\text{A wins on } k \text{th toss}) \\
             &= \sum_{k = 1}^{\infty} p (1 - p)^{2k - 2} \\
             &= \frac{p}{1 - (1-p)^2}.
         \end{align*}
 
-        \item Taking the derivative with respect to p, 
+        \item Taking the derivative with respect to p,
         \[ \frac{d}{dp} \frac{p}{1 - (1-p)^2} = \frac{p^2}{(1 - (1 - p)^2)^2} > 0. \]
-        Therefore this function is an increasing function in $p$, and its minimum occurs at 
-        $p = 0$. By L'Hopital's rule we have 
+        Therefore this function is an increasing function in $p$, and its minimum occurs at
+        $p = 0$. By L'Hopital's rule we have
         \[ \lim_{p \to 0^+} \frac{p}{1 - (1 - p)^2} = \frac{1}{2}, \]
         hence for $p \in (0, 1), \ P(\text{A wins}) > \frac{1}{2}$.
     \end{enumerate}
 
     % 1.25
-    \item Suppose that the order matters for the two children. Then 
+    \item Suppose that the order matters for the two children. Then
     \begin{align*}
         &\qquad P(\text{Both children are boys | at least one is a boy}) \\
         &= \frac{P(\text{Both children are boys, at least one is a boy})}
@@ -369,10 +369,10 @@
     \end{align*}
 
     % 1.26
-    \item Let $X$ be the number of tosses until a 6 appears. Then 
+    \item Let $X$ be the number of tosses until a 6 appears. Then
     $X \sim \text{Geom}(\frac{1}{6})$.
     \begin{align*}
-        P(X > 5) 
+        P(X > 5)
         &= 1 - P(X \leq 4) \\
         &= 1 - \sum_{k = 0}^{4} \frac{1}{6} \Big( \frac{5}{6} \Big)^{k} \\
         &= ...
@@ -380,12 +380,12 @@
 
     % 1.27
     \item \begin{enumerate}
-        \item If $n$ is odd, each $k$ term cancels out with the $n - k$ term so the statement 
-        is correct. If $n$ is even, by Pascal's identity, 
+        \item If $n$ is odd, each $k$ term cancels out with the $n - k$ term so the statement
+        is correct. If $n$ is even, by Pascal's identity,
 
-        \item By the Binomial Theorem, we have 
+        \item By the Binomial Theorem, we have
         \[ (1 + x)^{n} = \sum_{k = 0}^{n} \binom{n}{k}x^{k}. \]
-        Taking derivatives with respect to x both sides gives 
+        Taking derivatives with respect to x both sides gives
         \[ n(1 + x)^{n - 1} = \sum_{k = 0}^{n} k \binom{n}{k}x^{k-1}.\]
         Plugging in $x = 1$ gives the result.
 
@@ -399,103 +399,230 @@
     \end{enumerate}
 
     % 1.28
-    \item We have that 
+    \item We have that
     \[ \int_{0}^{n} \log{x} \ dx = [x\log{x} - x]_{0}^{n} = n\log{n} - n. \]
     \begin{align*}
-        \int_{1}^{n + 1} \log{x} \ dx 
+        \int_{1}^{n + 1} \log{x} \ dx
         &= [x\log{x} - x]_{1}^{n + 1} \\
         &= (n + 1)\log{(n + 1)} - (n + 1) - (\log{1} - 1) \\
         &= (n + 1)\log{(n + 1)} - n.
     \end{align*}
-    Then we get the average of the two integrals to be 
+    Then we get the average of the two integrals to be
     \begin{align*}
         \frac{1}{2} \Big( \int_{0}^{n} \log{x} \ dx + \int_{1}^{n + 1} \log{x} \ dx \Big)
         &= \frac{1}{2}(n\log{n} - n + (n + 1)\log{(n + 1)} - n) \\
         &\approx (n + \frac{1}{2})\log{n} - n
     \end{align*}
-    Define the sequence $a_n = \log{(n!)} - (n + \frac{1}{2})\log{n} - n$. Then for the 
-    problem, it is enough to show that $\lim_{n \to \infty} a_n = c$ for some nonzero constant 
-    $c$. To avoid the factorial, consider 
+    Define the sequence $a_n = \log{(n!)} - (n + \frac{1}{2})\log{n} - n$. Then for the
+    problem, it is enough to show that $\lim_{n \to \infty} a_n = c$ for some nonzero constant
+    $c$. To avoid the factorial, consider
     \[ a_n - a_{n + 1} = \Big( n + \frac{1}{2})\log{\Big(1 + \frac{1}{n} \Big)} - 1. \]
-    By the comparison test, the series above converges hence has a limit. Hence we get 
-    \[ \lim_{N \to \infty} \sum_{n = 1}^{N} a_n - a_{n + 1} 
+    By the comparison test, the series above converges hence has a limit. Hence we get
+    \[ \lim_{N \to \infty} \sum_{n = 1}^{N} a_n - a_{n + 1}
     = \lim_{N \to \infty} a_1 - a_{N + 1} = c \implies \lim_{n \to \infty} a_n = a_1 - c, \]
     which is a constant hence the proof is complete.
 
     % 1.29
     \item \begin{enumerate}
         \item Ordered samples of {4, 4, 12, 12}: \\
-        $(4, 4, 12, 12), (4, 12, 4, 12), (4, 12, 12, 4), (12, 4, 4, 12), (12, 4, 12, 4), 
+        $(4, 4, 12, 12), (4, 12, 4, 12), (4, 12, 12, 4), (12, 4, 4, 12), (12, 4, 12, 4),
         (12, 12, 4, 4)$. \\
         Ordered Samples of {2, 9, 9, 12}: \\
-        $(2, 9, 9, 12), (2, 9, 12, 9), (2, 12, 9, 9), (9, 2, 9, 12), (9, 2, 12, 9), 
-        (12, 2, 9, 9), \\ (9, 9, 2, 12), (9, 12, 2, 9), (12, 9, 2, 9), (9, 9, 12, 2), 
+        $(2, 9, 9, 12), (2, 9, 12, 9), (2, 12, 9, 9), (9, 2, 9, 12), (9, 2, 12, 9),
+        (12, 2, 9, 9), \\ (9, 9, 2, 12), (9, 12, 2, 9), (12, 9, 2, 9), (9, 9, 12, 2),
         (9, 12, 9, 2), (12, 9, 9, 2)$.
 
         \item Same as part a.
-        
-        \item There are a total of $6^6$ ways of drawing an ordered sample with replacement from 
-        ${1, 2, 7, 8, 14, 20}$. There are $\frac{6!}{2!2!} = 180$ ways of forming the ordered 
-        sample ${2, 7, 7, 8, 14, 14}$. Therefore the probability of getting the specific 
-        unordered sample is just $\frac{180}{6^6}$. 
 
-        \item There are $k!$ ways of ordering the sample. For each number, the order with a 
-        different number is considered the same sample. Therefore the answer is 
+        \item There are a total of $6^6$ ways of drawing an ordered sample with replacement from
+        ${1, 2, 7, 8, 14, 20}$. There are $\frac{6!}{2!2!} = 180$ ways of forming the ordered
+        sample ${2, 7, 7, 8, 14, 14}$. Therefore the probability of getting the specific
+        unordered sample is just $\frac{180}{6^6}$.
+
+        \item There are $k!$ ways of ordering the sample. For each number, the order with a
+        different number is considered the same sample. Therefore the answer is
         \[ \frac{k!}{k_1!k_2!\cdots k_m!}. \]
 
-        \item We can think of the $m$ distinct numbers as $m$ bins, and creating a sample of 
-        size $k$ with replacement as putting $k$ balls in the $m$ bins. From before, we 
+        \item We can think of the $m$ distinct numbers as $m$ bins, and creating a sample of
+        size $k$ with replacement as putting $k$ balls in the $m$ bins. From before, we
         already know that there are a total of $\binom{k + m - 1}{k}$ ways of doing this.
     \end{enumerate}
 
     % 1.30
-    \item 
-    
+    \item
+
     % 1.31
     \item \begin{enumerate}
-        \item There are $n!$ ways of generating the ordered set $\{x_1, ..., x_n\}$ 
-        from the set, and there are $n^n$ ways of generating size $n$ ordered samples from 
-        the set. Therefore the probability with the average being 
-        $(x_1 + \cdots + x_n) / n$ is just $\frac{n!}{n^n}$. Now consider any other set having 
-        a different sample average. Then the outcome will have $m$ numbers repeated 
-        $k_1, \dots, k_m$ times respectively, and at least one of the $k_i$'s will satisfy 
-        $2 \leq k_i \leq n$. Hence the probability of getting this sample is then 
-        \[ \frac{n!}{k_1!k_2!\cdots k_m! n^n} < \frac{n!}{n^n}, \text{ since } 
+        \item There are $n!$ ways of generating the ordered set $\{x_1, ..., x_n\}$
+        from the set, and there are $n^n$ ways of generating size $n$ ordered samples from
+        the set. Therefore the probability with the average being
+        $(x_1 + \cdots + x_n) / n$ is just $\frac{n!}{n^n}$. Now consider any other set having
+        a different sample average. Then the outcome will have $m$ numbers repeated
+        $k_1, \dots, k_m$ times respectively, and at least one of the $k_i$'s will satisfy
+        $2 \leq k_i \leq n$. Hence the probability of getting this sample is then
+        \[ \frac{n!}{k_1!k_2!\cdots k_m! n^n} < \frac{n!}{n^n}, \text{ since }
         k_1 \cdots k_m > 1\].
         Hence the sample with average $(x_1 + \cdots + x_n) / n$ is the most likely one.
     \end{enumerate}
 
     % 1.32
-    \item 
+    \item
 
     % 1.33
-    \item Let $M$/$F$ denote the event that a person is male/female, and let C denote the event 
-    that a person is color-blind. Using Bayes' Rule, 
+    \item Let $M$/$F$ denote the event that a person is male/female, and let C denote the event
+    that a person is color-blind. Using Bayes' Rule,
     \begin{align*}
         P(M|C)
         &= \frac{P(C|M)P(M)}{P(C|F)P(F) + P(C|M)P(M)} \\
         &= \frac{0.05 \cdot 0.5}{0.0025 \cdot 0.5 + 0.05 \cdot 0.5} \\
-        &\approx 0.9524. 
+        &\approx 0.9524.
     \end{align*}
 
     % 1.34
     \item \begin{enumerate}
-        \item Let $L_i$ be the event that the rodent is from litter $i$, $B$ be the event 
-        that the rodent has brown hair, and $G$ be the event that the rodent has grey hair. 
-        By the Law of Total Probability, 
+        \item Let $L_i$ be the event that the rodent is from litter $i$, $B$ be the event
+        that the rodent has brown hair, and $G$ be the event that the rodent has grey hair.
+        By the Law of Total Probability,
         \begin{align*}
-            P(B) 
+            P(B)
             &= P(B|L_1)P(L_1) + P(B|L_2)P(L_2) \\
             &= \frac{2}{3} \cdot \frac{1}{2} + \frac{3}{5} \cdot \frac{1}{2} \\
             &= \frac{19}{30}.
         \end{align*}
 
-        \item With the same notation as above, 
+        \item With the same notation as above,
         \begin{align*}
-            P(L_1|B) 
+            P(L_1|B)
             &= \frac{P(B|L_1)P(L_1)}{P(B)} \\
             &= \frac{1/3}{19/30} \\
             &= \frac{10}{19}.
+        \end{align*}
+    \end{enumerate}
+
+    % 1.35
+    \item $P(\cdot|B) = \frac{P(\cdot, B)}{P(B)} \geq 0$ hence the first axiom is satisfied. 
+    Also, $P(S|B) = 1$ hence the second axiom is satisfied. For $A_1, A_2, \dots$ disjoint, 
+    we have 
+    \begin{align*}
+        P\Big( \bigcup_{i = 1}^{\infty} A_i \Big| B \Big) 
+        &= \frac{P(\cup_{i = 1}^{\infty} A_i \cap B)}{P(B)} \\
+        &= \frac{P(\cup_{i = 1}^{\infty} (A_i \cap B))}{P(B)} \\
+        &= \frac{\sum_{i = 1}^{\infty} P(A_i \cap B)}{P(B)} \\
+        &= \sum_{i = 1}^{\infty} P(A_i | B).
+    \end{align*}
+    so the Kolmogorov axioms are satisfied.
+
+    % 1.36
+    \item Let $X$ be the number of times that the target is hit. Then 
+    $X \sim \text{Binomial}(10, \frac{1}{5})$.
+    \begin{align*}
+        P(X \geq 2)
+        &= 1 - P(X < 2) \\
+        &= 1 - \Big( \frac{4}{5} \Big)^{10} - 10\cdot \frac{1}{5} \Big( \frac{4}{5} \Big)^{9} \\
+        &\approx 0.6242.
+    \end{align*}
+    \begin{align*}
+        P(X \geq 2|X \geq 1) 
+        &= \frac{P(X \geq 2, X \geq 1)}{P(X \geq 1)} \\
+        &= \frac
+        {1 - \Big( \frac{4}{5} \Big)^{10} - 10\cdot \frac{1}{5} \Big( \frac{4}{5} \Big)^{9}}
+        {1 - \Big( \frac{4}{5} \Big)^{10}} \\
+        &\approx 0.6993.
+    \end{align*}
+
+    % 1.37
+    \item \begin{enumerate}
+        \item Let the notation be consistent with that of Example 1.3.4. \begin{align*}
+            P(\mathcal{W})
+            &= P(\mathcal{W}|A)P(A) + P(\mathcal{W}|B)P(B) + P(\mathcal{W}|C)P(C) \\
+            &= \gamma \cdot \frac{1}{3} + 0 \cdot \frac{1}{3} + 1 \cdot \frac{1}{3} \\
+            &= \frac{\gamma + 1}{3}.
+        \end{align*}
+        Then by Bayes' Rule, 
+        \begin{align*}
+            P(A|\mathcal{W}) 
+            &= \frac{P(A, \mathcal{W})}{P(\mathcal{W})} \\
+            &= \frac{\gamma / 3}{(\gamma + 1) / 3} \\
+            &= \frac{\gamma}{\gamma + 1}.
+        \end{align*}
+        In particular, 
+        \[ \begin{cases}
+            \frac{\gamma}{\gamma + 1} = \frac{1}{3} & \gamma = \frac{1}{2}, \\
+            \frac{\gamma}{\gamma + 1} < \frac{1}{3} & \gamma < \frac{1}{2}, \\
+            \frac{\gamma}{\gamma + 1} > \frac{1}{3} & \gamma > \frac{1}{2}.
+        \end{cases} \]
+
+        \item Note that $P(\cdot | \mathcal{W})$ is a probability function by Exercise 1.35. 
+        Moreover, $A, B, C$ partition the sample space $S$ so that 
+        \[ P(A|\mathcal{W}) + P(B|\mathcal{W}) + P(C|\mathcal{W}) = 1. \]
+        But $P(A|\mathcal{W}) = \frac{1}{3}$ from part (a), and $P(B|\mathcal{W}) = 0$. 
+        Therefore $P(C|\mathcal{W}) = \frac{2}{3}$, then A's reasoning is correct.
+    \end{enumerate}
+
+    % 1.38
+    \item \begin{enumerate}
+        \item $P(A) = P(A \cap B) + P(A \cap B^c)$ from Theorem 1.2.11. However, 
+        $A \cap B^{c} \subseteq B^{c}$ and $P(B^c) = 0$ hence $P(A \cap B^{c}) = 0$. 
+        This implies 
+        \[ P(A) = \frac{P(A \cap B)}{P(B)} = P(A \cap B). \]
+
+        \item Since $A \subseteq B, \ A \cap B = A$. Therefore 
+        \[ P(B|A) = \frac{P(A \cap B)}{P(A)} = 1, 
+        P(A|B) = \frac{P(A \cap B)}{P(B)} = \frac{P(A)}{P(B)}. \]
+
+        \item Since $A, B$ are mutually exclusive, $P(A \cup B) = P(A) + P(B)$, and 
+        $A \cap (A \cup B) = A$. Therefore 
+        \[ P(A|(A \cup B)) = \frac{P(A \cap (A \cup B))}{P(A \cup B)} 
+        = \frac{P(A)}{P(A) + P(B)}. \]
+
+        \item We will do the reverse direction.
+        \begin{align*}
+            P(A|(B \cap C))P(B|C)P(C) 
+            &= \frac{P(A \cap B \cap C)}{P(B \cap C)} \cdot \frac{P(B \cap C)}{P(C)} 
+            \cdot P(C) \\
+            &= P(A \cap B \cap C).
+        \end{align*}
+    \end{enumerate}
+
+    % 1.39
+    \item \begin{enumerate}
+        \item Suppose $A, B$ are mutually exclusive so $P(A \cap b) = 0$. Then they cannot be 
+        independent because $P(A)P(B) > 0$.
+
+        \item Suppose $A, B$ are independent so $P(A \cap B) = P(A)P(B)$. Then the equation 
+        has to be greater than 0 by definition so $A, B$ cannot be mutually exclusive.
+    \end{enumerate}
+
+    % 1.40
+    \item \begin{enumerate}
+        \item Proved already.
+
+        \item By Theorem 1.2.9 part a, 
+        \begin{align*}
+            P(A^c \cap B) 
+            &= P(B) - P(A \cap B) \\
+            &= P(B) - P(A)P(B) \\
+            &= P(B)(1 - P(A)) \\
+            &= P(A^{c})P(B).
+        \end{align*}
+
+        \item By Theorem 1.2.9 part a, 
+        \begin{align*}
+            P(A^c \cap B^c) 
+            &= P(A^c) - P(A^c \cap B) \\
+            &= P(A^{c}) - P(A^{c})P(B)
+            &= P(A^{c})(1 - P(B)) \\
+            &= P(A^{c})P(B^{c}).
+        \end{align*}
+    \end{enumerate}
+
+    % 1.41
+    \begin{enumerate}
+        \item Let $T$ denote the event that the signal is erratically transmitted, and $NT$ when 
+        it is not. Then 
+        \begin{align*}
+            P(\text{dash})
+            &= P(NT|\text{dash})P(\text{dash}) + 
         \end{align*}
     \end{enumerate}
 \end{enumerate}
