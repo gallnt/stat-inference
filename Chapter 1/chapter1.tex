@@ -416,7 +416,11 @@
     Define the sequence $a_n = \log{(n!)} - (n + \frac{1}{2})\log{n} - n$. Then for the 
     problem, it is enough to show that $\lim_{n \to \infty} a_n = c$ for some nonzero constant 
     $c$. To avoid the factorial, consider 
-    \[ a_n - a_{n + 1} = \]
+    \[ a_n - a_{n + 1} = \Big( n + \frac{1}{2})\log{\Big(1 + \frac{1}{n} \Big)} - 1. \]
+    By the comparison test, the series above converges hence has a limit. Hence we get 
+    \[ \lim_{N \to \infty} \sum_{n = 1}^{N} a_n - a_{n + 1} 
+    = \lim_{N \to \infty} a_1 - a_{N + 1} = c \implies \lim_{n \to \infty} a_n = a_1 - c, \]
+    which is a constant hence the proof is complete.
 
     % 1.29
     \item \begin{enumerate}
@@ -442,6 +446,57 @@
         \item We can think of the $m$ distinct numbers as $m$ bins, and creating a sample of 
         size $k$ with replacement as putting $k$ balls in the $m$ bins. From before, we 
         already know that there are a total of $\binom{k + m - 1}{k}$ ways of doing this.
+    \end{enumerate}
+
+    % 1.30
+    \item 
+    
+    % 1.31
+    \item \begin{enumerate}
+        \item There are $n!$ ways of generating the ordered set $\{x_1, ..., x_n\}$ 
+        from the set, and there are $n^n$ ways of generating size $n$ ordered samples from 
+        the set. Therefore the probability with the average being 
+        $(x_1 + \cdots + x_n) / n$ is just $\frac{n!}{n^n}$. Now consider any other set having 
+        a different sample average. Then the outcome will have $m$ numbers repeated 
+        $k_1, \dots, k_m$ times respectively, and at least one of the $k_i$'s will satisfy 
+        $2 \leq k_i \leq n$. Hence the probability of getting this sample is then 
+        \[ \frac{n!}{k_1!k_2!\cdots k_m! n^n} < \frac{n!}{n^n}, \text{ since } 
+        k_1 \cdots k_m > 1\].
+        Hence the sample with average $(x_1 + \cdots + x_n) / n$ is the most likely one.
+    \end{enumerate}
+
+    % 1.32
+    \item 
+
+    % 1.33
+    \item Let $M$/$F$ denote the event that a person is male/female, and let C denote the event 
+    that a person is color-blind. Using Bayes' Rule, 
+    \begin{align*}
+        P(M|C)
+        &= \frac{P(C|M)P(M)}{P(C|F)P(F) + P(C|M)P(M)} \\
+        &= \frac{0.05 \cdot 0.5}{0.0025 \cdot 0.5 + 0.05 \cdot 0.5} \\
+        &\approx 0.9524. 
+    \end{align*}
+
+    % 1.34
+    \item \begin{enumerate}
+        \item Let $L_i$ be the event that the rodent is from litter $i$, $B$ be the event 
+        that the rodent has brown hair, and $G$ be the event that the rodent has grey hair. 
+        By the Law of Total Probability, 
+        \begin{align*}
+            P(B) 
+            &= P(B|L_1)P(L_1) + P(B|L_2)P(L_2) \\
+            &= \frac{2}{3} \cdot \frac{1}{2} + \frac{3}{5} \cdot \frac{1}{2} \\
+            &= \frac{19}{30}.
+        \end{align*}
+
+        \item With the same notation as above, 
+        \begin{align*}
+            P(L_1|B) 
+            &= \frac{P(B|L_1)P(L_1)}{P(B)} \\
+            &= \frac{1/3}{19/30} \\
+            &= \frac{10}{19}.
+        \end{align*}
     \end{enumerate}
 \end{enumerate}
 
