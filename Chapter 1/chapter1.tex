@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{graphicx}
 \usepackage[margin=1.5in]{geometry}
 
 \title{Statistical Inference Chapter 1}
@@ -500,11 +501,11 @@
     \end{enumerate}
 
     % 1.35
-    \item $P(\cdot|B) = \frac{P(\cdot, B)}{P(B)} \geq 0$ hence the first axiom is satisfied. 
-    Also, $P(S|B) = 1$ hence the second axiom is satisfied. For $A_1, A_2, \dots$ disjoint, 
-    we have 
+    \item $P(\cdot|B) = \frac{P(\cdot, B)}{P(B)} \geq 0$ hence the first axiom is satisfied.
+    Also, $P(S|B) = 1$ hence the second axiom is satisfied. For $A_1, A_2, \dots$ disjoint,
+    we have
     \begin{align*}
-        P\Big( \bigcup_{i = 1}^{\infty} A_i \Big| B \Big) 
+        P\Big( \bigcup_{i = 1}^{\infty} A_i \Big| B \Big)
         &= \frac{P(\cup_{i = 1}^{\infty} A_i \cap B)}{P(B)} \\
         &= \frac{P(\cup_{i = 1}^{\infty} (A_i \cap B))}{P(B)} \\
         &= \frac{\sum_{i = 1}^{\infty} P(A_i \cap B)}{P(B)} \\
@@ -513,7 +514,7 @@
     so the Kolmogorov axioms are satisfied.
 
     % 1.36
-    \item Let $X$ be the number of times that the target is hit. Then 
+    \item Let $X$ be the number of times that the target is hit. Then
     $X \sim \text{Binomial}(10, \frac{1}{5})$.
     \begin{align*}
         P(X \geq 2)
@@ -522,7 +523,7 @@
         &\approx 0.6242.
     \end{align*}
     \begin{align*}
-        P(X \geq 2|X \geq 1) 
+        P(X \geq 2|X \geq 1)
         &= \frac{P(X \geq 2, X \geq 1)}{P(X \geq 1)} \\
         &= \frac
         {1 - \Big( \frac{4}{5} \Big)^{10} - 10\cdot \frac{1}{5} \Big( \frac{4}{5} \Big)^{9}}
@@ -538,47 +539,47 @@
             &= \gamma \cdot \frac{1}{3} + 0 \cdot \frac{1}{3} + 1 \cdot \frac{1}{3} \\
             &= \frac{\gamma + 1}{3}.
         \end{align*}
-        Then by Bayes' Rule, 
+        Then by Bayes' Rule,
         \begin{align*}
-            P(A|\mathcal{W}) 
+            P(A|\mathcal{W})
             &= \frac{P(A, \mathcal{W})}{P(\mathcal{W})} \\
             &= \frac{\gamma / 3}{(\gamma + 1) / 3} \\
             &= \frac{\gamma}{\gamma + 1}.
         \end{align*}
-        In particular, 
+        In particular,
         \[ \begin{cases}
             \frac{\gamma}{\gamma + 1} = \frac{1}{3} & \gamma = \frac{1}{2}, \\
             \frac{\gamma}{\gamma + 1} < \frac{1}{3} & \gamma < \frac{1}{2}, \\
             \frac{\gamma}{\gamma + 1} > \frac{1}{3} & \gamma > \frac{1}{2}.
         \end{cases} \]
 
-        \item Note that $P(\cdot | \mathcal{W})$ is a probability function by Exercise 1.35. 
-        Moreover, $A, B, C$ partition the sample space $S$ so that 
+        \item Note that $P(\cdot | \mathcal{W})$ is a probability function by Exercise 1.35.
+        Moreover, $A, B, C$ partition the sample space $S$ so that
         \[ P(A|\mathcal{W}) + P(B|\mathcal{W}) + P(C|\mathcal{W}) = 1. \]
-        But $P(A|\mathcal{W}) = \frac{1}{3}$ from part (a), and $P(B|\mathcal{W}) = 0$. 
+        But $P(A|\mathcal{W}) = \frac{1}{3}$ from part (a), and $P(B|\mathcal{W}) = 0$.
         Therefore $P(C|\mathcal{W}) = \frac{2}{3}$, then A's reasoning is correct.
     \end{enumerate}
 
     % 1.38
     \item \begin{enumerate}
-        \item $P(A) = P(A \cap B) + P(A \cap B^c)$ from Theorem 1.2.11. However, 
-        $A \cap B^{c} \subseteq B^{c}$ and $P(B^c) = 0$ hence $P(A \cap B^{c}) = 0$. 
-        This implies 
+        \item $P(A) = P(A \cap B) + P(A \cap B^c)$ from Theorem 1.2.11. However,
+        $A \cap B^{c} \subseteq B^{c}$ and $P(B^c) = 0$ hence $P(A \cap B^{c}) = 0$.
+        This implies
         \[ P(A) = \frac{P(A \cap B)}{P(B)} = P(A \cap B). \]
 
-        \item Since $A \subseteq B, \ A \cap B = A$. Therefore 
-        \[ P(B|A) = \frac{P(A \cap B)}{P(A)} = 1, 
+        \item Since $A \subseteq B, \ A \cap B = A$. Therefore
+        \[ P(B|A) = \frac{P(A \cap B)}{P(A)} = 1,
         P(A|B) = \frac{P(A \cap B)}{P(B)} = \frac{P(A)}{P(B)}. \]
 
-        \item Since $A, B$ are mutually exclusive, $P(A \cup B) = P(A) + P(B)$, and 
-        $A \cap (A \cup B) = A$. Therefore 
-        \[ P(A|(A \cup B)) = \frac{P(A \cap (A \cup B))}{P(A \cup B)} 
+        \item Since $A, B$ are mutually exclusive, $P(A \cup B) = P(A) + P(B)$, and
+        $A \cap (A \cup B) = A$. Therefore
+        \[ P(A|(A \cup B)) = \frac{P(A \cap (A \cup B))}{P(A \cup B)}
         = \frac{P(A)}{P(A) + P(B)}. \]
 
         \item We will do the reverse direction.
         \begin{align*}
-            P(A|(B \cap C))P(B|C)P(C) 
-            &= \frac{P(A \cap B \cap C)}{P(B \cap C)} \cdot \frac{P(B \cap C)}{P(C)} 
+            P(A|(B \cap C))P(B|C)P(C)
+            &= \frac{P(A \cap B \cap C)}{P(B \cap C)} \cdot \frac{P(B \cap C)}{P(C)}
             \cdot P(C) \\
             &= P(A \cap B \cap C).
         \end{align*}
@@ -586,10 +587,10 @@
 
     % 1.39
     \item \begin{enumerate}
-        \item Suppose $A, B$ are mutually exclusive so $P(A \cap b) = 0$. Then they cannot be 
+        \item Suppose $A, B$ are mutually exclusive so $P(A \cap b) = 0$. Then they cannot be
         independent because $P(A)P(B) > 0$.
 
-        \item Suppose $A, B$ are independent so $P(A \cap B) = P(A)P(B)$. Then the equation 
+        \item Suppose $A, B$ are independent so $P(A \cap B) = P(A)P(B)$. Then the equation
         has to be greater than 0 by definition so $A, B$ cannot be mutually exclusive.
     \end{enumerate}
 
@@ -597,18 +598,18 @@
     \item \begin{enumerate}
         \item Proved already.
 
-        \item By Theorem 1.2.9 part a, 
+        \item By Theorem 1.2.9 part a,
         \begin{align*}
-            P(A^c \cap B) 
+            P(A^c \cap B)
             &= P(B) - P(A \cap B) \\
             &= P(B) - P(A)P(B) \\
             &= P(B)(1 - P(A)) \\
             &= P(A^{c})P(B).
         \end{align*}
 
-        \item By Theorem 1.2.9 part a, 
+        \item By Theorem 1.2.9 part a,
         \begin{align*}
-            P(A^c \cap B^c) 
+            P(A^c \cap B^c)
             &= P(A^c) - P(A^c \cap B) \\
             &= P(A^{c}) - P(A^{c})P(B)
             &= P(A^{c})(1 - P(B)) \\
@@ -617,14 +618,53 @@
     \end{enumerate}
 
     % 1.41
-    \begin{enumerate}
-        \item Let $T$ denote the event that the signal is erratically transmitted, and $NT$ when 
-        it is not. Then 
+    \item \begin{enumerate}
+        \item Let $T$ denote the event that the signal is erratically transmitted, and $NT$ when
+        it is not. Then
         \begin{align*}
             P(\text{dash})
-            &= P(NT|\text{dash})P(\text{dash}) + 
+            &= P(NT|\text{dash})P(\text{dash}) +
         \end{align*}
     \end{enumerate}
+
+    % 1.42
+    \item \begin{enumerate}
+        \item For some $x \in \cup_{i = 1}^{n} A_i$, $x$ has to occur in at least one of the 
+        $A_i$'s hence $x \in E_i$ for some $i$ so that $x \in \cup_{i = 1}^{n} E_i$. Now 
+        consider some $x \in \cup_{i = 1}^{n} E_i$. Then by definition, $x \in E_k$ for 
+        some $k$, meaning $x$ is in exactly $k$ of the events $A_1, \dots, A_n$ so 
+        $x \in \cup_{i = 1}^{n} A_i$. Therefore we have that 
+        $\cup_{i = 1}^{n} E_i = \cup_{i = 1}^{n} A_i$. Since the $E_i$'s are disjoint, 
+        \[ P(\cup_{i = 1}^{n} A_i) = P(\cup_{i = 1}^{n} E_i) = \sum_{i = 1}^{n} P(E_i). \]
+
+        \item part b
+
+        \item For any $t$ from 1 to $k$, $P(E_t)$ appears $\binom{k}{t}$ times in the sum 
+        $P_t$ because there are $\binom{k}{t}$ ways to choose $t$ sets to intersect together 
+        so that sample points occur exactly $t$ times.
+
+        \item This is identical to that of part (a) of Exercise 1.27 hence we will leave out 
+        the proof here.
+
+        \item part e
+    \end{enumerate}
+
+    % 1.43
+    \item \begin{enumerate}
+        \item 
+    \end{enumerate}
+
+    % 1.44
+    \item Let $X$ be the questions that the student got right given that he is guessing. Then 
+    $X \sim \text{Binomial}(20, \frac{1}{4})$. Then
+    \[ P(X \geq 10) = \sum_{k = 10}^{20} \binom{20}{k} \Big( \frac{1}{4} \Big)^{k} 
+    \Big( \frac{3}{4} \Big)^{20 - k} \approx 0.01386. \]
+
+    % 1.45
+    \item $\mathcal{X}$ is finite so we can let the sigma algebra $\mathcal{B}$ be all subsets 
+    of $\mathcal{X}$, including $\mathcal{X}$.
+
+    Axiom 1: For $A \in \mathcal{B}$, $P(A) = P(\cup_{x_i \in A} )$
 \end{enumerate}
 
 \end{document}
