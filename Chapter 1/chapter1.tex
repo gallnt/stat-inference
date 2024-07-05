@@ -665,6 +665,150 @@
     of $\mathcal{X}$, including $\mathcal{X}$.
 
     Axiom 1: For $A \in \mathcal{B}$, $P(A) = P(\cup_{x_i \in A} )$
+
+    % 1.46
+    \item There are a total of $7^7$ equally likely sample points. We also have that $X_3$ can 
+    range from 0 to 2 because we only have 7 balls. Similar to the notation of that in Exercise 
+    1.20, $X_3 = 2$ can only happen if 2 bins have exactly 3 balls and 1 bin has exactly 1 ball. 
+    We denote this configuration as 311. Then by a similar calculation as before, 
+    \[ P(X_3 = 2) = \frac{\binom{7}{2}\binom{7}{3}\binom{4}{3} \cdot 5}{7^7} \approx 0.0178. \]
+    For $X_3 = 1$, there are more possibilities hence we list them in the table below: 
+    \[ \begin{tabular}{|l|l|r|}
+        \hline
+        \text{Config} & \text{Number of Ways} & \text{Answer} \\
+        \hline
+        34 & $7\binom{7}{3} \cdot 6\binom{4}{4}$ & 1470 \\
+        322 & $7\binom{7}{3} \cdot \binom{6}{2}\binom{4}{2}\binom{2}{2}$ & 22050 \\
+        3211 & $7\binom{7}{3} \cdot 6\binom{4}{2} \cdot \binom{5}{2}$ 2! & 176400 \\
+        31111 & $7\binom{7}{3} \cdot \binom{6}{4}4!$ & 88200 \\
+        total & & 288120 \\
+        \hline
+    \end{tabular} \]
+    Hence $P(X_3 = 1) = \frac{288120}{7^7} \approx 0.3498$. Then we can get 
+    \[ P(X_3 = 0) = 1 - P(X_3 = 2) - P(X_3 = 1) \approx 0.6322. \]
+
+    % 1.47
+    \item For each part we denote $F(x)$ as the given functions. For parts (a)-(d), the 
+    functions themselves are continuous hence there is no need to justify right continuity.
+    \begin{enumerate}
+        \item \[ \lim_{x \to -\infty} F(x) = \frac{1}{2} - \frac{1}{2} = 0, 
+        \lim_{x \to \infty} F(x) = \frac{1}{2} + \frac{1}{2} = 1. \]
+        Also, $F'(x) = \frac{1}{\pi (1 + x^2)} > 0 \quad \forall x \in \mathbb{R}$ hence $F$ is 
+        increasing on $\mathbb{R}$ so is a cdf.
+
+        \item \[ \lim_{x \to -\infty} F(x) = (1 + \infty)^{-1} = 0, 
+        \lim_{x \to \infty} F(x) = (1 + 0)^{-1} = 1. \]
+        Also, $F'(x) = \frac{e^{-x}}{(1 + e^{-x})^2} > 0 \quad \forall x \in \mathbb{R}$. 
+        Hence $F$ is increasing on $\mathbb{R}$ so it is a cdf.
+
+        \item \[ \lim_{x \to -\infty} F(x) = e^{-e^{\infty}} = 0, 
+        \lim_{x \to \infty} F(x) = e^{0} = 1. \]
+        Also, $F'(x) = e^{-x}F(x) > 0 \quad \forall x \in \mathbb{R}$. Hence $F$ is increasing 
+        on $\mathbb{R}$ so it is a cdf.
+
+        \item This is just the cdf of an exponential random variable with parameter $\lambda = 1$.
+        
+        \item \[ \lim_{y \to -\infty} F_{Y}(y) = 0, 
+        \lim_{y \to \infty} F_{Y}(y) = \epsilon + 1 - \epsilon = 1. \]
+        From part (b), we can directly say that $F$ is increasing on $\mathbb{R}$. Moreover, 
+        $F$ is right-continuous by the way it is defined hence it is a cdf.
+    \end{enumerate}
+
+    % 1.48
+    \item Suppose that $F(\cdot)$ is a cdf. Then $F(x) = P(X \leq x)$. Then we get 
+    \[ \lim_{x \to -\infty} F(x) = \lim_{x \to -\infty} P(X \leq x) = 0, 
+    \lim_{x \to \infty} F(x) = \lim_{x \to \infty} P(X \leq x) = 1. \]
+    $F$ is nondecreasing in $x$ because the set ${x: X \leq x}$ is nondecreasing in $x$. 
+    Moreover, as $x \to x_0, \quad P(X \leq x) \to P(X \leq x_0)$ hence $F$ is right 
+    continuous. 
+
+    % 1.49
+    \item Q1.49
+
+    % 1.50
+    \item For $t \neq 1$, 
+    \begin{align*}
+        (1 - t)\sum_{k = 1}^{n} t^{k - 1}
+        &= (1 - t)(1 + t + t^2 + \cdots + t^n) \\
+        &= 1 - t + t - t^2 + t^2 - \cdots + t^{n - 1} - t^{n} \\
+        &= 1 - t^{n}.
+    \end{align*}
+
+    % 1.51
+    \item From the question, $X \sim \text{Hypergeometric}(30, 5, 4)$. Then we can directly 
+    obtain the pmf of $X$:
+    \[ p_{X}(k) = \frac{\binom{5}{k}\binom{25}{4 - k}}{\binom{30}{4}}, k = 0, \dots, 4. \]
+    The cdf is a step function having jumps at the $k$ values above. We can plot the cdf using 
+    Python, shown below: 
+    \begin{center}
+        \includegraphics*[width=0.8\textwidth]{../scripts/1-51.png}
+    \end{center}
+
+    % 1.52
+    \item $g$ is positive from its definition. We have 
+    \[ \int_{-\infty}^{\infty} g(x) = \int_{x_0}^{\infty} \frac{f(x)}{1 - F(x_0)} \ dx 
+    = \frac{1 - F(x_0)}{1 - F(x_0)} = 1. \]
+    Therefore $g(x)$ is a pdf.
+
+    % 1.53
+    \item \begin{enumerate}
+        \item \[ \lim_{y \to -\infty} F_{Y}(y) = 0, \lim_{y \to \infty} F_{Y}(y) = 1. \]
+        Moreover, $F_{Y}(y)$ is constant on $(-\infty, 1)$, and is increasing on 
+        $[1, \infty)$, and \\ $\lim_{y \to 1} F_{Y}(y) = F_{Y}(1)$ hence $F_{Y}(y)$ is 
+        right continuous so it is a cdf.
+
+        \item By differentiating with respect to $y$, 
+        \[ f_{Y}(y) = \begin{cases}
+            0 & y < 1, \\
+            \frac{2}{y^3} & y \geq 1.
+        \end{cases} \]
+
+        \item First note that $Y \in [1, \infty)$ hence $Z = 10(Y - 1) \in [0, \infty)$.
+        \begin{align*}
+            F_{Z}(z)
+            &= P(Z \leq z) \\
+            &= P(10(Y - 1) \leq z) \\
+            &= P(Y \leq \frac{z}{10} + 1) \\
+            &= F_Y(\frac{z}{10} + 1) \\
+            &= 1 - \frac{1}{(\frac{z}{10} + 1)^2}, \ z \in [0, \infty)
+        \end{align*}
+    \end{enumerate}
+
+    % 1.54
+    \item \begin{enumerate}
+        \item \[ \int_{0}^{\pi / 2} c\sin{x} \ dx  = c \cdot 1 = c. \]
+        For the integral above to equal 1, $c$ has to be 1.
+
+        \item This is the pdf of a double exponential random variable with parameters \\
+        $\mu = 0, b = 1$. Then by definition, $c = \frac{1}{2b} = \frac{1}{2}$.
+    \end{enumerate}
+
+    % 1.55
+    \item From the question we can see that $T \sim \text{Exp}(\frac{1}{1.5})$. Therefore 
+    we can immediately get that the cdf of $T$ is 
+    \[ F_{T}(t) = 1 - e^{-t/1.5}, \quad t > 0. \]
+    From the information given, 
+    \begin{align*}
+        P(V \leq 5) 
+        &= P(T < 3) \\
+        &= \int_{0}^{3} \frac{1}{1.5} e^{-t/1.5} \ dt \\
+        &= 1 - e^{-2}.
+    \end{align*}
+    Since $T \in (0, \infty), V = 2T \in (0, \infty)$. Then when $v > 5$, 
+    \begin{align*}
+        F_{V}(v) 
+        &= P(V \leq v) \\
+        &= P(2T \leq v) \\
+        &= P(T \leq \frac{v}{2}) \\
+        &= F_{T}(\frac{v}{2}) \\
+        &= 1 - e^{-v/3}, \quad v > 5.
+    \end{align*}
+    Combining together, we can get that the cdf of $V$ is 
+    \[ F_{V}(v) = \begin{cases}
+        0 & v \leq 0, \\
+        1 - e^{-2} & 0 < v \leq 5, \\
+        1 - e^{-v/3} & 5 < v < \infty.
+    \end{cases}\]
 \end{enumerate}
 
 \end{document}
