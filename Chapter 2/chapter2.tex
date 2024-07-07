@@ -3,6 +3,9 @@
 \usepackage{amsmath}
 \usepackage[margin=1.5in]{geometry}
 
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\corr}{Corr}
+
 \title{Statistical Inference Chapter 2}
 \author{Gallant Tsao}
 
@@ -355,7 +358,42 @@
         From part (a), 
         \[ \mathbb{E}[Y^2] = \mathbb{E}[|X|^2] = \mathbb{E}[X^2] = 1. \]
         Therefore, 
-        \[ Var(Y) = \mathbb{E}[Y^2] - (\mathbb{E}[Y])^2 = 1 - \frac{2}{\pi}. \]
+        \[ \var(Y) = \mathbb{E}[Y^2] - (\mathbb{E}[Y])^2 = 1 - \frac{2}{\pi}. \]
+    \end{enumerate}
+
+    % 2.12
+    \item We have that $X \sim \text{Uniform}(0, \frac{pi}{2})"$ and $Y = d\tan{X}$. 
+    Ket $g(x) = d\tan{x}$. Then $g$ is increasing on $(0, \frac{\pi}{2})$. For 
+    $X \in (0, \frac{\pi}{2}), \quad Y \in (0, \infty)$. We have that 
+    $g{-1}(y) = \arctan{y/d}$ has a continuous derivative on $(0, \infty)$. Then by 
+    Theorem 2.1.5, 
+    \begin{align*}
+        f_{Y}(y) 
+        &= f_{X}(g^{-1}(y)) \Big| \frac{d}{dy}g^{-1}(y) \Big| \\
+        &= \frac{2}{\pi} \frac{1}{1 + (y/d)^2} \cdot \frac{1}{d} \\
+        &= \frac{2}{\pi d} \frac{1}{1 + (y/d)^2}, \quad y \in (0, \infty).
+    \end{align*}
+    Then $Y \sim \text{Cauchy}(0, d)$ so therefore $\mathbb{E}[Y] = \infty$.
+
+    % 2.13
+    \item We have that For $X = k$, we can either have $k$ tails followed by a head or $k$ 
+    heads followed by a tail. Then 
+    \[ P(X = k) = (1 - p)^{k}p + p^{k}(1 - p), \quad k = 1, 2, ... \]
+    Then 
+    \begin{align*}
+        \mathbb{E}[X] 
+        &= \sum_{k = 1}^{\infty} k[(1 - p)^{k}p + p^{k}(1 - p)] \\
+        &= p(1 - p) \sum_{k = 1}^{\infty} k(1 - p)^{k - 1}p + kp^{k - 1}(1 - p) \\
+        &= p(1 - p) \Big( \frac{1}{p^2} + \frac{1}{(1 - p)^2}) \\
+        &= \frac{1 -2p + 2p^2}{p(1 - p)}.
+    \end{align*}
+
+    \item \begin{enumerate}
+        \item \begin{align*}
+            E[X]
+            &= \int_{0}^{\infty} xf_{X}(x) \ dx \\
+            &= [xF_{X}(x)]_{0}^{\infty} - \int_{0}^{\infty} F_{X}(x) \ dx
+        \end{align*}
     \end{enumerate}
 \end{enumerate}
 

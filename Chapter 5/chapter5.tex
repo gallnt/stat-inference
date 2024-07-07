@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[margin=1.5in]{geometry}
+
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\corr}{Corr}
+
+\title{Statistical Inference Chapter 5}
+\author{Gallant Tsao}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+    % 5.1
+    \item Let $X$ be the number of color blinded people in that population of size $n$. Then 
+    $X \sim \text{Binomial}(n, 0.01)$. We want 
+    \begin{align*}
+        P(X \geq 1) 
+        &= 1 - P(X = 0) \\
+        &= 1 - \binom{n}{0}(0.01)^{0}(0.99)^{n} \\
+        &= 1 - 0.99^{n} \\
+        &> 0.95.
+    \end{align*}
+    For the inequality above to be true, we need $n > \log_{0.99}(0.05) \implies n \geq 299$.
+
+    % 5.2
+    \item \begin{enumerate}
+        \item 
+    \end{enumerate}
+
+    % 5.3
+    \item From the definition, we can see that $Y_i \sim \text{Bernoulli}(1 - F(\mu))$. 
+    Since 
+    $\sum_{i = 1}^{n} Y_{i}$ is a sum of independent Bernoulli random variables, we can get 
+    that \[ \sum_{i = 1}^{n} Y_{i} \sim \text{Binomial}(n, 1 - F(\mu)). \]
+
+    % 5.4
+    \item \begin{enumerate}
+        \item 
+    \end{enumerate}
+
+    % 5.5
+    \item Let $Y = \sum_{i = 1}^{n} X_i$. We can see that 
+    $\bar{X} = (1/n)Y$ is a scale transformation. Then the pdf of $\bar{X}$ is 
+    \[ f_{\bar{X}}(x) = \frac{1}{1/n} f_{Y}(\frac{x}{1/n}) = nf_{X}(nx). \]
+
+    % 5.6
+    \item \begin{enumerate}
+        \item 
+    \end{enumerate}
+
+    % 5.7
+\end{enumerate}
+
+\end{document}
