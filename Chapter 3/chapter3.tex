@@ -43,9 +43,9 @@
         \item Firstly, we need $n = 6$ because for the same $K$, increasing $n$ decreases the 
         value of the Hypergeometric pmf (image shown at end of answer). Then with $n = 6$, 
         \begin{align*}
-            P(X = 0 | n = 6) 
+            P(X = 0) 
             &= \frac{\binom{6}{0}\binom{94}{K}}{\binom{100}{K}} \\
-            &= \frac{(100 - k)\cdots (100 - K - 5)}{100 \cdots 95}
+            &= \frac{(100 - k)\cdots (100 - K - 5)}{100 \cdots 95}.
         \end{align*}
         After some trial and error with the calculations, we have that when 
         $K = 31$, $P(X = 0) = 0.10056$, but when $K = 32$, $P(X = 0) = 0.09182$. Therefore, 
@@ -54,8 +54,20 @@
             \includegraphics*[width=0.8\textwidth]{../scripts/3-2.png}
         \end{center}
         
-        \item By the same reasoning above, we need $n = 6$. Then 
+        \item By the same reasoning above, we need $n = 6$. Then with this $n$,
+        \begin{align*}
+            P(X = 0 \text{ or } 1) 
+            &= \frac{\binom{6}{0}\binom{94}{K}}{\binom{100}{K}} 
+            + \frac{\binom{6}{1}\binom{94}{K - 1}}{\binom{100}{K}}.
+        \end{align*}
+        Again, by trial and error, when $K = 50$, $P(X = 0 \text{ or } 1) = 0.10220$, but when 
+        $K = 51$, $P(X = 0 \text{ or } 1) =0.09331$ hence the sample size must be at least 51.
     \end{enumerate}
+
+    % 3.3
+    \item In this case a car has to pass through for the first second, no car passes in the 
+    next three seconds (three second wait), and no car passes through for another three 
+    seconds (person is crossing the road).
 \end{enumerate}
 
 \end{document}
