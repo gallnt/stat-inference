@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{amssymb}
 \usepackage{amsmath}
+\usepackage{graphicx}
 \usepackage[margin=1.5in]{geometry}
 
 \title{Statistical Inference Chapter 3}
@@ -37,10 +38,23 @@
 
     % 3.2
     \item Let $X = $ number of defective parts in the sample. Then \\
-    $X \approx \text{Hypergeometric}(100, n, K)$.
+    $X \sim \text{Hypergeometric}(100, n, K)$.
     \begin{enumerate}
         \item Firstly, we need $n = 6$ because for the same $K$, increasing $n$ decreases the 
-        value of the Hypergeometric pmf. Then with $n = 6$, 
+        value of the Hypergeometric pmf (image shown at end of answer). Then with $n = 6$, 
+        \begin{align*}
+            P(X = 0 | n = 6) 
+            &= \frac{\binom{6}{0}\binom{94}{K}}{\binom{100}{K}} \\
+            &= \frac{(100 - k)\cdots (100 - K - 5)}{100 \cdots 95}
+        \end{align*}
+        After some trial and error with the calculations, we have that when 
+        $K = 31$, $P(X = 0) = 0.10056$, but when $K = 32$, $P(X = 0) = 0.09182$. Therefore, 
+        the sample size must be at least 32.
+        \begin{center}
+            \includegraphics*[width=0.8\textwidth]{../scripts/3-2.png}
+        \end{center}
+        
+        \item By the same reasoning above, we need $n = 6$. Then 
     \end{enumerate}
 \end{enumerate}
 
