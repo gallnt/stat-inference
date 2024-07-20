@@ -2,6 +2,7 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{xcolor}
 \usepackage[margin=1.5in]{geometry}
 
 \title{Statistical Inference Chapter 3}
@@ -149,6 +150,52 @@
     \end{enumerate}
 
     % 3.10
+    \item \begin{enumerate}
+        \item Let $X$ be the number of packets of cocaine from the first draw, and let $Y$ be the number of 
+        noncocaine packets from the second draw. Then we have that $X \sim \text{Hypergeometric}
+        (N + M, N, 4)$ and $Y \sim \text{Hypergeometric}(N + M - 4, M, 2).$ Then the probability that the 
+        defendant is innocent is 
+        \[ P(X = 4)P(Y = 2) = \frac{\binom{N}{4}\binom{M}{0}}{\binom{N + M}{4}} 
+        \frac{\binom{M}{2}\binom{N - 4}{0}}{\binom{N + M - 4}{2}} 
+        = \frac{\binom{N}{4}\binom{M}{2}}{\binom{N + M}{4}\binom{N + M - 4}{2}}. \]
+
+        \item Since the denominator from part (a) is a constant, we just have to find the maximizer of the 
+        numerator, which is just $\binom{N}{4}\binom{496 - N}{2}.$ After some calculus, the local maximizer 
+        is about $330.834$, hence the maximum is attained at $N = 331, M = 165$, with value about 0.022.
+    \end{enumerate}
+
+    % 3.11
+    \item \begin{enumerate}
+        \item 
+    \end{enumerate}
+
+    % 3.12
+    \item Consider a sequence of independent $\text{Bernoulli}(p)$ random variables. We define $X = $
+    Number of successes in $n$ trials, and $Y = $ Number of failures until the $r$th success. Then 
+    $X, Y$ have the specified distributions in the questions. Then
+    \begin{align*}
+        F_{X}(r - 1)
+        &= P(X \leq r - 1) \\
+        &= P(r\text{th success on } (n + 1)\text{th or later trial}) \\
+        &= P(\text{At least } (n + 1 - r) \text{ failures before the }r \text{ th success}) \\
+        &= P(Y \geq n - r + 1) \\
+        &= 1 - P(Y \leq n - r) \\
+        &= 1 - F_{Y}(n - r).
+    \end{align*}
+
+    % 3.13
+    \item Firstly, note that we can find the expectation and variance of the truncated distribution for a 
+    general discrete random variable ranging from 0, then we can plug in the values:
+    \begin{align*}
+        \mathbb{E}[X_{T}]
+        &= \sum_{k = 1}^{\infty} kP(X_{T} = k) \\
+        &= \sum_{k = 1}^{\infty} k\frac{P(X = k)}{P(X > 0)} \\
+        &= \frac{1}{P(X > 0)} \sum_{k = 1}^{\infty} kP(X = k) \\
+        &= \frac{\mathbb{E}[X]}{P(X > 0)}.
+    \end{align*}
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
 \end{enumerate}
 
 \end{document}
