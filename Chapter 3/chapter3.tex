@@ -65,9 +65,90 @@
     \end{enumerate}
 
     % 3.3
-    \item In this case a car has to pass through for the first second, no car passes in the 
-    next three seconds (three second wait), and no car passes through for another three 
-    seconds (person is crossing the road).
+    \item During the three seconds that the person is crossing, there should be no cars passing. 
+    The probability of this happening is $(1 - p)^3$. The only possibility for the person to 
+    not wait exactly 4 seconds is when there is a car at the first second and no cars in the 
+    next 3 seconds. The probability of this happening is $p(1 - p)^3$. Since the times are 
+    independent, the probability that the pedestrian has to wait exactly 4 seconds is 
+    $[1 - p(1 - p)^3] (1 - p)^3$.
+
+    % 3.4
+    \item \begin{enumerate}
+        \item Let $X$ be the number of trials. Then in this case $X \sim \text{Geom}(0.1)$. 
+        Therefore the mean number of trials is just $\frac{1}{0.1} = 10$.
+
+        \item 
+    \end{enumerate}
+
+    % 3.5
+    \item Let $X = $ number of effective cases. Suppose the new drug is equally effective as 
+    the old drug. Then $X \sim \text{Binomial}(100, 0.8)$ if the cases are independent from each 
+    other, which is a reasonable assumption. We have 
+    \[ P(X \geq 85) = \sum_{k = 85}^{100}\binom{100}{k} 0.8^{k} \cdot 0.2^{100 - k} = 0.1285. \]
+    From this, the probability of getting 85 or more effective cases is not too small, hence we 
+    cannot directly make a conclusion that the new drug is superior.
+
+    % 3.6
+    \item \begin{enumerate}
+        \item $X \sim \text{Binomial}(2000, 0.01)$.
+
+        \item \[ \sum_{k = 0}^{99} \binom{2000}{k} 0.01^{k} \cdot 0.99^{2000 - k}. \]
+
+        \item In our problem, $n = 2000, p = 0.01, q = 0.99$. Since $np, nq > 5$, we can use 
+        normal approximation here. The normal approximation is $Y \sim N(\mu, \sigma^2)$, where 
+        \[ \mu = np = 20, \sigma^2 = npq = 19.8. \]
+        Then we get 
+        \[ P(X < 100) \approx P(Z < 17.979) = 1. \]
+    \end{enumerate}
+
+    % 3.7
+    \item Let $X$ be the number of chocolate chips in the cookie. Then 
+    $X \sim \text{Poisson}(\lambda)$. We want that 
+    \[ P(X \geq 2) = 1 - P(X \leq 1) > 0.99 \implies P(X \leq 1) 
+    = e^{-\lambda} + \lambda e^{-\lambda} < 0.01. \]
+    Solving the above numerically, we get that $\lambda = 6.6384.$
+
+    % 3.8
+    \item \begin{enumerate}
+        \item Let $X$ be the number of customers in the theater. Then 
+        $X \sim \text{Binomial}(1000, \frac{1}{2}).$ We want 
+        \[ P(X > N) = \sum_{k = N + 1}^{1000} \binom{1000}{k} \Big( \frac{1}{2} \Big)^{k} 
+        \Big( 1 - \frac{1}{2} \Big)^{1000 - k} < 0.01.\]
+        In other words, we are solving the smallest $N$ such that 
+        \[ \Big( \frac{1}{2} \Big)^{1000} \sum_{k = N + 1}^{1000} \binom{1000}{k} < 0.01. \]
+        By looping over $N$, we eventually get that $N = 537$.
+
+        \item $n = 1000, p = q = \frac{1}{2}$. Therefore the parameters for the normal 
+        approximation are $\mu = np = 500, \sigma^2 = npq = 250$. Then we are solving for 
+        \[ P(X > N) \approx P(Z > \frac{N - 500}{\sqrt{250}}) < 0.01. \]
+        Using R, we get that 
+        \[ \frac{N - 500}{\sqrt{250}} = 2.326 \implies N \approx 537, \]
+        which is the same as our answer in part (a).
+    \end{enumerate} 
+
+    % 3.9
+    \item \begin{enumerate}
+        \item Let $X \sim \text{Binomial}$ as depicted in the question. 
+        \begin{align*}
+            P(X \geq 5)
+            &= 1 - P(X \leq 4) \\
+            &= 1 - \sum_{k = 0}^{4} \binom{60}{k} \Big( \frac{1}{90} \Big)^{k} 
+            \Bigl( 1 - \frac{1}{90} \Bigr)^{60 - k} \\
+            &\approx 0.0006,
+        \end{align*}
+        which I think is rare enough to be on the news.
+
+        \item Let $X$ be the number of schools in New York state with 5 or more sets of twins. Then 
+        $X \sim \text{Binomial}(360, 0.0006)$. We have that 
+        \[ P(X \geq 1) = 1 - P(X = 0) \approx 0.1698. \]
+
+        \item Let $X$ be the number of states in the past 10 years having 5 or more sets of twins. Then 
+        $X \sim \text{Binomial}(500, 0.1698)$. We have that 
+        \[ P(X \geq 1) = 1 - P(X = 0) = 1. \]
+        Therefore this event becomes almost certain as we broaden the time scope.
+    \end{enumerate}
+
+    % 3.10
 \end{enumerate}
 
 \end{document}
