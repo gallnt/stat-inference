@@ -5,6 +5,9 @@
 \usepackage{xcolor}
 \usepackage[margin=1.5in]{geometry}
 
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\corr}{Corr}
+
 \title{Statistical Inference Chapter 3}
 \author{Gallant Tsao}
 
@@ -193,9 +196,115 @@
         &= \frac{1}{P(X > 0)} \sum_{k = 1}^{\infty} kP(X = k) \\
         &= \frac{\mathbb{E}[X]}{P(X > 0)}.
     \end{align*}
+    From the same way we get that 
+    \[ \mathbb{E}[X_{T}^2] = \frac{\mathbb{E}[X^2]}{P(X > 0)}. \]
+    Therefore, 
+    \[ \var{X_{T}} = \frac{\mathbb{E}[X^2]}{P(X > 0)} - \Bigl( \frac{\mathbb{E}[X]}{P(X > 0)} \Bigr)^2. \]
+
     \begin{enumerate}
-        \item 
+        \item For $\text{Poisson}(\lambda)$, $P(X > 0) = 1 - e^{-\lambda}$.
+        \[ P(X_{T} = k) = \frac{\lambda^{k} e^{-\lambda}}{k!(1 - e^{-\lambda})}, \ k = 1, 2, \dots \]
+        and therefore 
+        \[ \mathbb{E}[X_{T}] = \frac{\lambda}{1 - e^{-\lambda}}, 
+        \var{X_{T}} = \frac{\lambda^2 + \lambda}{1 - e^{-\lambda}} 
+        - \Bigl( \frac{\lambda}{1 - e^{-\lambda}}\Bigr)^2. \]
+
+        \item For $\text{NB}(r, p)$, $P(X > 0) = 1 - \binom{r - 1}{0} (1 - p)^{k}p^{r} = 1 - p^{r}$.
+        \[ P(X_{T} = k) = \frac{\binom{k + r - 1}{k}(1 - p)^{k} p^{r}}{1 - p^{r}}, \ k = 1, 2, \dots \]
+        and therefore 
+        \[ \mathbb{E}[X_{T}] = \frac{r(1 - p)}{p(1 - p^{r})}, 
+        \var{X_{T}} = \frac{r(1 - p) + r^{2}(1 - p)^{2}}{p^{2}(1 - p^{r})} 
+        - \Bigl( \frac{r(1 - p)}{p(1 - p^{r})} \Bigr)^{2}. \]
     \end{enumerate}
+
+    % 3.14
+    \item \begin{enumerate}
+        \item \begin{align*}
+            \sum_{x = 1}^{\infty} \frac{-(1 - p)^{x}}{x\log{p}} 
+            &= \frac{1}{\log{p}} \sum_{x = 1}^{\infty} \frac{-(1 - p)^{x}}{x} \\
+            &= \frac{1}{\log{p}} \cdot \log{p} \\
+            &= 1
+        \end{align*}
+        as the latter term is the Taylor series for $\log{p}$.
+
+        \item \begin{align*}
+            \mathbb{E}[X]
+            &= \sum_{x = 1}^{\infty} x \cdot \frac{-(1 - p)^{x}}{x\log{p}} \\
+            &= -\frac{1}{\log{p}} \sum_{x = 1}^{\infty} (1 - p)^{x} \\
+            &= -\frac{1 - p}{p\log{p}}.
+        \end{align*}
+        Also, \begin{align*}
+            \mathbb{E}[X^2]
+            &= -\frac{1}{\log{p}} \sum_{x = 1}^{\infty} x(1 - p)^{x} \\
+            &= \frac{1 - p}{\log{p}} \sum_{x = 1}^{\infty} \frac{d}{dp} (1 - p)^{x} \\
+            &= \frac{1 - p}{\log{p}} \frac{d}{dp} \sum_{x = 1}^{\infty} (1 - p)^{x} \\
+            &= \frac{1 - p}{\log{p}} \frac{d}{dp} \Bigl( \frac{1 - p}{p} \Bigr) \\
+            &= \frac{-(1 - p)}{p^{2}\log{p}}.
+        \end{align*}
+        Therefore 
+        \[ \var{X} = \mathbb{E}[X^2] - (\mathbb{E}[X])^2 = \frac{-(1 - p)}{p^{2}\log{p}} 
+        \Bigl[ 1 + \frac{1 - p}{\log{p}} \Bigr]. \]
+    \end{enumerate}
+
+    % 3.15
+    \item The moment generating function for $\text{NB}(r, p)$ is (after some algebraic manipulations)
+    \begin{align*}
+        M(t) 
+        &= \Bigl( \frac{p}{1 - (1 - p)e^{t}} \Bigr)^{r}, \ t < -\log{(1 - p)} \\
+        &= \Bigl( \frac{1 - (1 - p)e^{t}}{1 - (1 - p)e^{t}} 
+        + \frac{(1 - p)(e^{t} - 1)}{1 - (1 - p)e^{t}} \Bigr)^{r} \\
+        &= \Bigl( 1 + \frac{1}{r} \frac{r(1 - p)(e^{t} - 1)}{1 - (1 - p)e^{t}} \Bigr)^{r}.
+    \end{align*}
+    From above, 
+    \[ \frac{r(1 - p)(e^{t} - 1)}{1 - (1 - p)e^{t}} \to \frac{\lambda (e^{t} - 1)}{1} 
+    = \lambda (e^{t} - 1) \text{ as } r \to \infty, \ p \to 1, \text{ and } r(1 - p) \to \lambda. \]
+    Therefore, taking the limit, 
+    \[ M(t) \to \lim_{r \to \infty} \Bigl( 1 + \frac{\lambda (e^{t} - 1)}{r} \Bigr)^{r} 
+    = e^{\lambda(e^{t} - 1)}, \]
+    which is exactly the moment generating function of the Poisson random variable.
+
+    % 3.16
+    \item \begin{enumerate}
+        \item \begin{align*}
+            \Gamma(\alpha + 1)
+            &= \int_{0}^{\infty} t^{\alpha} e^{-t} \ dt \\
+            &= [-t^{\alpha} e^{-t}]_{0}^{\infty} + \alpha \int_{0}^{\infty} t^{\alpha - 1} e^{-t} \ dt \\
+            &= \alpha \Gamma(\alpha).
+        \end{align*}
+
+        \item \begin{align*}
+            \Gamma(\frac{1}{2})
+            &= \int_{0}^{\infty} t^{-\frac{1}{2}} e^{-t} \ dt \\
+            &= \int_{0}^{\infty} 2e^{-u^2} \ du \\
+            &= 2 \cdot \frac{\sqrt{\pi}}{2} \\
+            &= \sqrt{\pi}.
+        \end{align*}
+    \end{enumerate}
+
+    % 3.17
+    \item \begin{align*}
+        \mathbb{E}[X^{\nu}]
+        &= \int_{0}^{\infty} x^{\nu} \cdot \frac{1}{\beta^{\alpha} \Gamma(\alpha)} 
+        x^{\alpha - 1} e^{-x/\beta} \ dx \\
+        &= \frac{1}{\beta^{\alpha} \Gamma(\alpha)} \int_{0}^{\infty} 
+        x^{\nu + \alpha - 1} e^{-x/\beta} \ dx \\
+        &= \frac{\beta^{\nu + \alpha} \Gamma(\nu + \alpha)}{\beta^{\alpha} \Gamma(\alpha)} \\
+        &= \frac{\beta^{\nu} \Gamma(\nu + \alpha)}{\Gamma(\alpha)}.
+    \end{align*}
+
+    % 3.18
+    \item The moment generating function of a $\text{NB}(r, p)$ random variable is 
+    \[ M_{Y}(t) = \Bigl( \frac{p}{1 - (1 - p)e^{t}} \Bigr)^{r}, \ t < -\log{(1 - p)}. \]
+    Then from Theorem 2.3.15, 
+    \[ M_{pY}(t) = M_{Y}(pt) = \Bigl( \frac{p}{1 - (1 - p)e^{pt}} \Bigr)^{r}. \]
+    Taking $p \to 0$, the above is of the form $\frac{0}{0}$. Then by L'Hopital's Rule, 
+    \[ \lim_{p \to 0} \frac{p}{1 - (1 - p)e^{pt}} 
+    = \lim_{p \to 0} \frac{1}{(p - 1)te^{pt} + e^{pt}} = \frac{1}{1 - t}. \]
+    Therefore, 
+    \[ \lim_{p \to 0} M_{pY}(t) = \Bigl( \frac{1}{1 - t} \Bigr)^{r} = (1 - t)^{-r}, \]
+    which is exactly the moment generating function of a $\text{Gamma}(r, 1)$ random variable.
+
+    % 3.19
 \end{enumerate}
 
 \end{document}
