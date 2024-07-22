@@ -305,6 +305,85 @@
     which is exactly the moment generating function of a $\text{Gamma}(r, 1)$ random variable.
 
     % 3.19
+    \item Since $\alpha \in \mathbb{N}$, $\Gamma(\alpha) = (\alpha - 1)!$. Then 
+    \begin{align*}
+        \frac{1}{\Gamma(\alpha)} \int_{x}^{\infty} z^{\alpha - 1} e^{-z} \ dz
+        &= \Bigl[ -\frac{z^{\alpha - 1}e^{-z}}{(\alpha - 1)!} \Bigr]_{x}^{\infty} 
+        + \frac{\alpha - 1}{(\alpha - 1)!} \int_{x}^{\infty} z^{\alpha - 2}e^{-z} \ dz \\
+        &= \frac{x^{\alpha - 1}e^{-x}}{(\alpha - 1)!} 
+        + \frac{1}{(\alpha - 2)!} \int_{x}^{\infty} z^{\alpha - 2}e^{-z} \ dz \\
+        &= \cdots \\
+        &= \sum_{y = 0}^{\alpha - 1} \frac{x^{y}e^{-x}}{y!}, \ \alpha = 1, 2, 3, \dots
+    \end{align*}
+
+    % 3.20
+    \item \begin{enumerate}
+        \item \begin{align*}
+            \mathbb{E}[X]
+            &= \int_{0}^{\infty} \frac{2}{\sqrt{2\pi}} xe^{-x^2 / 2} \ dx \\
+            &= \frac{2}{\sqrt{2\pi}} \int_{0}^{\infty} e^{-u} \ du \quad (u = x^2 / 2) \\
+            &= \frac{2}{\sqrt{2\pi}}, \\
+            \mathbb{E}[X^2]
+            &= \int_{0}^{\infty} \frac{2}{\sqrt{2\pi}} x^2 e^{-x^2 / 2} \ dx \\
+            &= \Bigl[ -\frac{2}{\sqrt{2\pi}} xe^{-x^2 / 2} \Bigr]_{0}^{\infty} 
+            + \frac{2}{\sqrt{2\pi}} \int_{0}^{\infty} e^{-x^2 / 2} \ dx \\
+            &= \frac{1}{\sqrt{2}}, \\
+            \var{X}
+            &= \frac{1}{\sqrt{2}} - \Bigl( \frac{2}{\sqrt{2\pi}} \Bigr)^2 \\
+            &= \frac{1}{\sqrt{2}} - \frac{1}{\pi}.
+        \end{align*}
+
+        \item Let $Z$ be a standard normal random variable. Since $X = |Z|$, $X^2 = Z^2 \sim \chi_{1}^2$. 
+        More importantly, $\chi_{1}^2 \sim \text{Gamma}(\frac{1}{2}, 2)$. Therefore the transformation we 
+        need is just $g(x) = x^2$ and $\alpha = \frac{1}{2}, \beta = 2$.
+    \end{enumerate}
+
+    % 3.21
+    \item The integral for the mgf is $\frac{1}{\pi} \int_{\infty}^{\infty} \frac{e^{tx}}{1 + x^2} \ dx$. 
+    Note that on $(0, \infty)$, $e^{tx} > x$ and therefore 
+    \[ \int_{0}^{\infty} \frac{e^{tx}}{1 + x^2} \ dx > \int_{0}^{\infty} \frac{x}{1 + x^2} \ dx = \infty \]
+    so the integral is not finite.
+
+    % 3.22
+    \item \begin{enumerate}
+        \item 
+    \end{enumerate}
+
+    % 3.23
+    \item \begin{enumerate}
+        \item \[ 
+        \int_{\alpha}^{\infty} \frac{\beta \alpha^{\beta}}{x^{\beta + 1}} \ dx 
+        = \Bigl[ -\frac{\alpha^{\beta}}{x^{\beta}} \Bigr]_{\alpha}^{\infty} = 0 - (-1) = 1. 
+        \]
+
+        \item First note that 
+        \begin{align*}
+            \mathbb{E}[X^{n}]
+            &= \int_{\alpha}^{\infty} \frac{\beta \alpha^{\beta}}{x^{\beta - n + 1}} \ dx \\
+            &= \Bigl[ \frac{\beta \alpha^{\beta}}{(\beta - n)x^{\beta - n}} \Bigr]_{\alpha}^{\infty} \\
+            &= \frac{\alpha^{n} \beta}{n - \beta}.
+        \end{align*}
+        Therefore \begin{align*}
+            \mathbb{E}[X] &= \frac{\alpha \beta}{1 - \beta}, \\
+            \mathbb{E}[X^2] &= \frac{\alpha^{2} \beta}{2 - \beta}, \\
+            \var{X} &= \frac{\alpha^{2} \beta}{2 - \beta} - \Bigl( \frac{\alpha \beta}{1 - \beta} \Bigr)^2.
+        \end{align*}
+
+        \item If $\beta \leq 2$, 
+        \[ \mathbb{E}[X^2] 
+        = \int_{\alpha}^{\infty} \frac{\beta \alpha^{\beta}}{x^{1 - \beta}} 
+        > \int_{\alpha}^{\infty} \frac{\beta \alpha^{\beta}}{x} 
+        = \infty \]
+        Hence the integral diverges so the second moment and variance do not exist.
+    \end{enumerate}
+
+    % 3.24
+    \item \begin{enumerate}
+        \item Since $f_{X}(x) = \frac{1}{\beta}e^{-x / \beta}, \ x > 0$, we get that 
+        $f{Y}(y) = \frac{\gamma}{\beta} y^{\gamma - 1} e^{-y^\gamma / \beta}, \ y > 0$.
+    \end{enumerate}
+
+    % 3.25
 \end{enumerate}
 
 \end{document}
