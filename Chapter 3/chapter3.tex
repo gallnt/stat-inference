@@ -384,6 +384,33 @@
     \end{enumerate}
 
     % 3.25
+    \item \begin{align*}
+        h_{T}(t) 
+        &= \lim_{\delta \to 0} \frac{P(t \leq T < t + \delta | T \geq t)}{\delta} \\
+        &= \lim_{\delta \to 0} \frac{P(t \leq T < t + \delta, T \geq t)}{\delta P(T \geq t)} \\
+        &= \lim_{\delta \to 0} \frac{P(t \leq T < t + \delta)}{\delta (1 - F_{T}(t))} \\
+        &= \frac{1}{1 - F_{T}(t)} \lim_{\delta \to 0} \frac{F_{T}(t + \delta) - F_{T}(t)}{\delta} \\
+        &= \frac{f_{T}(t)}{1 - F_{T}(t)}.
+    \end{align*}
+    The second equality is clear by some calculations.
+
+    % 3.26
+    \item \begin{enumerate}
+        \item Since $T \sim \text{Exp}(\beta)$, $F_{T}(t) = 1 - e^{-t / \beta}$. Then 
+        \begin{align*}
+            h_{T}(t)
+            &= -\frac{d}{dt} \log(1 - (1 - e^{-t / \beta})) \\
+            &= -\frac{d}{dt} \Bigl( -\frac{t}{\beta} \Bigr) \\
+            &= \frac{1}{\beta}.
+        \end{align*}
+
+        \item Since $T \sim \text{Weibull}(\gamma, \beta)$, $F_{T}(t) = $
+    \end{enumerate}
+
+    % 3.27
+    \item \begin{enumerate}
+        \item 
+    \end{enumerate}
 \end{enumerate}
 
 \end{document}
