@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{amssymb}
 \usepackage{amsmath}
+\usepackage{xcolor}
 \usepackage[margin=1.5in]{geometry}
 
 \DeclareMathOperator{\var}{Var}
@@ -664,9 +665,134 @@
             &= 0.
         \end{align*}
 
+        \item First of all, 
+        \[ E[X] = \int_{0}^{\infty} xe^{-x} \ dx = [-xe^{-x} - e^{-x}]_{0}^{\infty} = 1. \]
+        Then 
+        \begin{align*}
+            \mu_2
+            &= \int_{0}^{\infty} (x - 1)^2 e^{-x} \ dx \\
+            &= [-(x - 1)^2 e^{-x} - 2(x - 1)e^{-x} - 2e^{-x}]_{0}^{\infty} \\
+            &= 0 - (-1 + 2 - 2) \\
+            &= 1, \\
+            \mu_3
+            &= \int_{0}^{\infty} (x - 1)^2 e^{-x} \ dx \\
+            &= [-(x - 1)^3 e^{-x} - 3(x - 1)^2 e^{-x} - 6(x - 1)e^{-x} - 6e^{-x}]_{0}^{\infty} \\
+            &= 0 - (1 - 3 + 6 - 6) \\
+            &= 2.
+        \end{align*}
+        Therefore $\alpha_3 = \frac{2}{1^{3 / 2}} = 2$.
+
+        \item The first pdf is the standard normal, so for any even number $n = 2k, k \in \mathbb{N}$, 
+        $\mathbb{E}[X^n] = (n - 1)!!$ so $\alpha_4 = \frac{3}{1^2} = 3$.
+
+        For the second pdf, 
+        \begin{align*}
+            &\mathbb{E}[X^2] 
+            = \int_{-1}^{1} \frac{1}{2}x^2 \ dx 
+            = \Bigl[ \frac{1}{6}x^3 \Bigr]_{-1}^{1} 
+            = \frac{1}{3}. \\
+            &\mathbb{E}[X^2] 
+            = \int_{-1}^{1} \frac{1}{2}x^4 \ dx 
+            = \Bigl[ \frac{1}{10}x^5 \Bigr]_{-1}^{1} 
+            = \frac{1}{5}. \\
+            &\mu_4 
+            = \frac{1}{5} / \Bigl( \frac{1}{3} \Bigr)^2 
+            = \frac{9}{5}.
+        \end{align*}
+
+        For the third pdf, since it is symmetric and unimodal, $\mathbb{E}[X] = 0$. Then 
+        \begin{align*}
+            &\mathbb{E}[X^2]
+            = \int_{-\infty}^{0} \frac{1}{2}x^2 e^x \ dx + \int_{0}^{\infty} \frac{1}{2}x^2 e^{-x} \ dx 
+            = 2. \\
+            &\mathbb{E}[X^4]
+            = \int_{-\infty}^{0} \frac{1}{2}x^4 e^x \ dx + \int_{0}^{\infty} \frac{1}{2}x^4 e^{-x} \ dx 
+            = 24. \\
+            &\mu_4 
+            = \frac{24}{2^2} 
+            = 6.
+        \end{align*}
+
+        We can see that the larger the kurtosis, the more peaked the pdf is.
+    \end{enumerate}
+
+    % 2.29
+    \item \begin{enumerate}
+        \item For the $\text{Binomial}(n, p)$ distribution, 
+        \begin{align*}
+            \mathbb{E}[X(X - 1)]
+            &= \sum_{k = 0}^{n} {\color{blue} k(k - 1) \binom{n}{k}} p^k (1 - p)^{n - k} \\
+            &= \sum_{k = 2}^{n} {\color{blue} n(n - 1) \binom{n - 2}{k - 2}} p^k (1 - p)^{n - k} \\
+            &= n(n - 1)p^2 \sum_{l = 0}^{n - 2} \binom{n - 2}{l} p^l (1 - p)^{n - 2 - l} \\
+            &= n(n - 1)p^2,
+        \end{align*}
+        where we used the substitution $l = k - 2$.
+
+        For the $\text{Poisson}(\lambda)$ distribution, 
+        \begin{align*}
+            \mathbb{E}[X(X - 1)]
+            &= \sum_{k = 0}^{\infty} k(k - 1) \frac{\lambda^k e^{-\lambda}}{k!} \\
+            &= \sum_{k = 2}^{\infty} k(k - 1) \frac{\lambda^k e^{-\lambda}}{k!} \\
+            &= \lambda^2 \sum_{k = 2}^{\infty} \frac{\lambda^{k - 2} e^{-\lambda}}{(k - 2)!} \\
+            &= \lambda^2.
+        \end{align*}
+
+        \item Since $\var{X} = \mathbb{E}[X(X - 1)] + \mathbb{E}[X] - (\mathbb{E}[X])^2$, for the binomial, 
+        \[ \var{X} = n(n - 1)p^2 + np - (np)^2 = np(1 - p). \]
+        For the Poisson, 
+        \[ \var{X} = \lambda^2 + \lambda - \lambda^2 = \lambda. \]
+
         \item 
     \end{enumerate}
 
+    % 2.30 
+    \item \begin{enumerate}
+        \item 
+    \end{enumerate}
+
+    % 2.31
+    \item No such distribution exists. First note that $M_{X}(0) = \mathbb{E}[e^0] = 1$. If the mgf were 
+    to be that stated in the question, $M_X(0) = 0$, which is incorrect.
+
+    % 2.32
+    \item \begin{align*}
+        \frac{d}{dt} S(t) \Big|_{t = 0}
+        = \frac{1}{M_X(t)} \cdot M'_X(t) \Big|_{t = 0}
+        = \frac{1}{1} \cdot M'_X(0) 
+        = \mathbb{E}[X].
+    \end{align*}
+    \begin{align*}
+        \frac{d^2}{dt^2} S(t) \Big|_{t = 0} 
+        &= -\frac{1}{M_X^2(t)} \cdot (M'_X(t))^2 + \frac{1}{M_X(t)} M''_X(t) \Big|_{t = 0} \\
+        &= -\frac{1}{1^2} (M'_X(0))^2 + \frac{1}{1} M''_X(0) \\
+        &= \mathbb{E}[X^2] - (\mathbb{E}[X])^2 \\
+        &= \var{X}.
+    \end{align*}
+
+    % 2.33
+    \item \begin{enumerate}
+        \item \begin{align*}
+            M_X(t) 
+            &= \sum_{x = 0}^{\infty} e^{tx} \frac{\lambda^x e^{-\lambda}}{x!} \\
+            &= e^{-\lambda} \sum_{x = 0}^{\infty} \frac{(\lambda e^t)^x}{x!} \\
+            &= e^{-\lambda} \cdot e^{\lambda e^t} \\
+            &= e^{\lambda (e^t - 1)}.
+        \end{align*}
+        Therefore 
+        \[ \mathbb{E}[X] = M'_X(0) = \lambda e^t \cdot e^{\lambda (e^t - 1)} |_{t = 0} = \lambda, \]
+        \[ \mathbb{E}[X^2] = M''_X(0) = \lambda e^t \cdot e^{\lambda (e^t - 1)} 
+        + (\lambda e^t)^2 \cdot e^{\lambda (e^t - 1)} = \lambda^2 + \lambda, \]
+        \[ \var{X} = \lambda^2 + \lambda - \lambda^2 = \lambda. \]
+
+        \item \begin{align*}
+            M_X(t)
+            &= \sum_{x = 0}^{\infty} e^{tx} \cdot p(1 - p)^x \\
+            &= p \sum_{x = 0}^{\infty} ((1 - p)e^t)^x \\
+            &= \frac{p}{1 - (1 - p)e^t}, \ t < -\log(1 - p).
+        \end{align*}
+        Therefore 
+        \[ \mathbb{E}[X] = M'_X(0) = \]
+    \end{enumerate}
 \end{enumerate}
 
 \end{document}
