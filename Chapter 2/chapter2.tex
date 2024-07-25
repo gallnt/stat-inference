@@ -747,6 +747,19 @@
 
     % 2.30 
     \item \begin{enumerate}
+        \item \[
+        M(t) = \int_{0}^{c} e^{tx} \cdot \frac{1}{c} \ dx 
+        = \frac{1}{c} \Bigl[ \frac{1}{t}e^{tx} \Bigr]_{0}^{c} 
+        = \frac{1}{ct} (e^{ct} - 1). \]
+
+        \item \begin{align*}
+            M(t)
+            &= \int_{0}^{c} e^{tx} \cdot \frac{2x}{c^2} \ dx \\
+            &= \frac{2}{c^2} \Bigl[ \frac{x}{t}e^{tx} - \frac{1}{t^2}e^{tx} \Bigr]_0^c \\
+            &= \frac{2}{c^2} \Bigl( \frac{c}{t}e^{ct} - \frac{1}{t^2}e^{ct} + \frac{1}{t^2} \Bigr) \\
+            &= \frac{2}{ct}e^{ct} - \frac{2}{c^2 t^2}e^{ct} + \frac{2}{c^2 t^2}.
+        \end{align*}
+
         \item 
     \end{enumerate}
 
@@ -791,7 +804,19 @@
             &= \frac{p}{1 - (1 - p)e^t}, \ t < -\log(1 - p).
         \end{align*}
         Therefore 
-        \[ \mathbb{E}[X] = M'_X(0) = \]
+        \[ \mathbb{E}[X] = M'_X(0) = \frac{-p(-(1 - p)e^t)}{(1 - (1 - p)e^t)^2} \Big|_{t = 0} 
+        = \frac{p(1 - p)e^t}{(1 - (1 - p)e^t)^2} \Big|_{t = 0} = \frac{1 - p}{p}. \]
+        \begin{align*}
+            \mathbb{E}[X^2] 
+            &= M''_X(0) \\
+            &= \frac{p(1 - p)e^t (1 - (1 - p)e^t)^2 - p(1 - p)e^t 2(1 - (1 - p)e^t) 
+            (-(1 - p)e^t)}{(1 - (1 - p)e^t)^4} \Big|_{t = 0} \\
+            &= \frac{p^3(1 - p + 2p^2(1 - p)^2)}{p^4} \\
+            &= \frac{p(1 - p) + 2(1 - p)^2}{p^2}.
+        \end{align*}
+        \[ \var{X} = \frac{p(1 - p) + 2(1 - p)^2}{p^2} - \frac{(1 - p)^2}{p^2} = \frac{1 - p}{p^2}. \]
+
+        \item
     \end{enumerate}
 \end{enumerate}
 
