@@ -816,8 +816,48 @@
         \end{align*}
         \[ \var{X} = \frac{p(1 - p) + 2(1 - p)^2}{p^2} - \frac{(1 - p)^2}{p^2} = \frac{1 - p}{p^2}. \]
 
-        \item
+        \item \begin{align*}
+            M_X(t) 
+            &= \int_{-\infty}^{\infty} e^{tx} \frac{1}{\sqrt{2\pi}\sigma} e^{-(x - \mu)^2 / 2\sigma^2} \ dx \\
+            &= \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}\sigma} 
+            e^{-(x^2 - 2\mu x - 2t\sigma^2 x + \mu^2) / 2\sigma^2} \ dx \\
+            &= e^{(2\mu t\sigma^2 + t^2 \sigma^4) / 2\sigma^2} \int_{-\infty}^{\infty} 
+            \frac{1}{\sqrt{2\pi}\sigma} e^{-(x - (\mu + t\sigma)^2)} \ dx \\
+            &= e^{\mu t + \sigma^2 t^2 / 2}.
+        \end{align*}
+        Where we have completed the square on the exponential by doing 
+        \begin{align*}
+            x^2 - 2\mu x - 2t\sigma^2 x + \mu^2 
+            &= x^2 - 2(\mu + t\sigma^2)x + (\mu + t\sigma^2)^2 - (\mu + t\sigma^2)^2 + \mu^2 \\
+            &= (x - (\mu + t\sigma)^2) - (2\mu t \sigma^2 + t^2 \sigma^4).
+        \end{align*}
+        Therefore, 
+        \[ \mathbb{E}[X] = M'_X(0) = (\mu + \sigma^2 t)e^{\mu t + \sigma^2 t^2 / 2} |_{t = 0} = \mu. \]
+        \begin{align*}
+            \mathbb{E}[X^2] 
+            &= M''_X(0) \\
+            &= \sigma^2 e^{\mu t + \sigma^2 t^2 / 2} + (\mu + \sigma^2 t)^2 e^{\mu t + \sigma^2 t^2 / 2} 
+            |_{t = 0} \\
+            &= \sigma^2 + \mu^2.
+        \end{align*}
+        \[ \var{X} = \sigma^2 + \mu^2 - \mu^2 = \sigma^2. \]
     \end{enumerate}
+
+    % 2.34
+    \item Since $X \sim N(0, 1)$, 
+    \[ \mathbb{E}[X^n] = \begin{cases}
+        0, & \text{if } n \text{ odd}, \\
+        (n - 1)!!, & \text{if } n \text{ even}.
+    \end{cases} \]
+    Therefore $\mathbb{E}[X] = \mathbb{E}[X^3] = \mathbb{E}[X^5] = 0$, $\mathbb{E}[X^2] = 1$, 
+    $\mathbb{E}[X^4] = 3$.
+
+   On the other hand, 
+   \[ E[Y^n] = \frac{1}{6}(-\sqrt{3})^n + \frac{1}{6}(\sqrt{3})^n, \]
+   so $\mathbb{E}[Y] = \mathbb{E}[Y^3] = \mathbb{E}[Y^5] = 0$, $\mathbb{E}[Y^2] = 1$, 
+   $\mathbb{E}[Y^4] = 3$, so 
+   \[ \mathbb{E}[X^n] = \mathbb{E}[Y^n], \quad n = 1, 2, 3, 4, 5. \]
+
 \end{enumerate}
 
 \end{document}
