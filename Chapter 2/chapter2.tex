@@ -2,6 +2,7 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{xcolor}
+\usepackage{graphicx}
 \usepackage[margin=1.5in]{geometry}
 
 \DeclareMathOperator{\var}{Var}
@@ -844,6 +845,10 @@
     \end{enumerate}
 
     % 2.34
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+
     \item Since $X \sim N(0, 1)$, 
     \[ \mathbb{E}[X^n] = \begin{cases}
         0, & \text{if } n \text{ odd}, \\
@@ -851,12 +856,84 @@
     \end{cases} \]
     Therefore $\mathbb{E}[X] = \mathbb{E}[X^3] = \mathbb{E}[X^5] = 0$, $\mathbb{E}[X^2] = 1$, 
     $\mathbb{E}[X^4] = 3$.
+    
+    On the other hand, 
+    \[ E[Y^n] = \frac{1}{6}(-\sqrt{3})^n + \frac{1}{6}(\sqrt{3})^n, \]
+    so $\mathbb{E}[Y] = \mathbb{E}[Y^3] = \mathbb{E}[Y^5] = 0$, $\mathbb{E}[Y^2] = 1$, 
+    $\mathbb{E}[Y^4] = 3$, so 
+    \[ \mathbb{E}[X^n] = \mathbb{E}[Y^n], \quad n = 1, 2, 3, 4, 5 \].
 
-   On the other hand, 
-   \[ E[Y^n] = \frac{1}{6}(-\sqrt{3})^n + \frac{1}{6}(\sqrt{3})^n, \]
-   so $\mathbb{E}[Y] = \mathbb{E}[Y^3] = \mathbb{E}[Y^5] = 0$, $\mathbb{E}[Y^2] = 1$, 
-   $\mathbb{E}[Y^4] = 3$, so 
-   \[ \mathbb{E}[X^n] = \mathbb{E}[Y^n], \quad n = 1, 2, 3, 4, 5. \]
+    % 2.35
+    \item \begin{enumerate}
+        \item By setting $u = \log{x} \implies du = \frac{1}{x} dx$, 
+        \begin{align*}
+            \mathbb{E}[X^r] 
+            &= \int_{0}^{\infty} x^r \cdot \frac{1}{\sqrt{2\pi}x} e^{-(\log{x})^2 / 2} \ dx \\
+            &= \int_{-\infty}^{\infty} e^{ru} \cdot \frac{1}{\sqrt{2\pi}} e^{-u^2 / 2} \ du \\
+            &= e^{r^2 / 2} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-(u - r)^2 / 2} \ du \\
+            &= e^{r^2 / 2},
+        \end{align*}
+        where we completed the square by the same technique in Exercise 2.33.
+
+        \item 
+    \end{enumerate}
+
+    % 2.36
+    \item Let $g(x) = tx - \frac{(\log{x})^2}{2}$. From L'Hopital's Rule, 
+    \[ \lim_{x \to \infty} \frac{g(x)}{tx} = \lim_{x \to \infty} \frac{t - \frac{\log{x}}{x}}{t} = 1 
+    \implies \lim_{x \to \infty} g(x) = \infty. \]
+    Let $\varepsilon > 0$ be given. Since $g(x)$ is continuous and its limit goes to infinity, $\exists 
+    k \in (0, \infty)$ such that $e^{g(x)} > 1 \ \forall x > k$. Therefore 
+    \[ \int_{0}^{\infty} \frac{e^{tx}}{\sqrt{2\pi}x}e^{-(\log{x})^2 / 2} \ dx 
+    > \frac{1}{\sqrt{2\pi}} \int_{0}^{\infty} \frac{e^{g(x)}}{x} \ dx 
+    > \frac{1}{\sqrt{2\pi}} \int_{0}^{\infty} \frac{1}{x} \ dx = \infty \]
+    so that $M_x(t)$ does not exist.
+
+    % 2.37
+    \item \begin{enumerate}
+        \item 
+    \end{enumerate}
+
+    % 2.38
+    \item \begin{enumerate}
+        \item To find the mgf of $X$, we need the extended Binomial Theorem and the property below: 
+        \[ \binom{-r}{x} = (-1)^x \binom{r + x - 1}{x}. \]
+        We can see that the property above is indeed true: 
+        \begin{align*}
+            \binom{-r}{x} 
+            &= \frac{(-r)(-r-1)\cdots(-r - x + 1)}{x!} \\
+            &= (-1)^x \frac{(r + x - 1)\cdots(r + 1)r}{x!} \\
+            &= (-1)^x \binom{r + x - 1}{x}.
+        \end{align*}
+        Then we get that 
+        \begin{align*}
+            M_X(t) 
+            &= \sum_{x = 0}^{\infty} e^{tx} \binom{r + x - 1}{x} p^r (1 - p)^x \\
+            &= p^r \sum_{x = 0}^{\infty} (-1)^x \binom{-r}{x} ((1 - p)e^t)^x \\
+            &= p^r \sum_{x = 0}^{\infty} \binom{-r}{x} (-(1 - p)e^t)^x.
+        \end{align*}
+        By the Binomial Theorem, $(x + 1)^r = \sum_{k = 1}^{\infty} \binom{r}{k} x^k$, hence the above is 
+        \[ M_X(t) = p^r \cdot (\frac{1}{1 - (1 - p)e^t})^{-r} 
+        = \Bigl( \frac{p}{1 - (1 - p)e^t} \Bigr)^r, \ t < -\log{(1 - p)}. \]
+
+        \item By Theorem 2.3.15, $M_Y(t) = M_X(2pt)$. Then from part (a), 
+        \[ M_X(t) = \Bigl( \frac{p}{1 - (1 - p)e^t} \Bigr)^r 
+        \implies M_Y(t) = \Bigl( \frac{p}{1 - (1 - p)e^{2pt}} \Bigr)^r. \]
+        Then by L'Hopital's rule, 
+        \begin{align*}
+            \lim_{p \to 0} M_Y(t) 
+            &= \lim_{p \to 0} \Bigl( \frac{p}{1 - (1 - p)e^{2pt}} \Bigr)^r \\
+            &= \Bigl( \frac{1}{e^{2pt} - (1 - p) \cdot 2te^{2pt}} \Bigr)^r \Big|_{p = 0} \\
+            &= \Bigl( \frac{1}{1 - 2t} \Bigr)^r, \ |t| < \frac{1}{2}.
+        \end{align*}
+        This is exactly the mgf of a $\chi^2_{2r}$ random variable.
+    \end{enumerate}
+
+    % 2.39
+    \item 
+    
+    % 2.40
+    \item This statement is only true for $x = 0, 1, \cdots, n - 1$.
 
 \end{enumerate}
 
