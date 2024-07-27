@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage[margin=1.5in]{geometry}
+\usepackage[margin=1in]{geometry}
 
 \title{Statistical Inference Chapter 4}
 \author{Gallant Tsao}
@@ -12,7 +12,88 @@
 
 \begin{enumerate}
     % 4.1
-    \item
+    \item Since $(X, Y)$ is distributed uniformly, the probabilities in this question are simply the 
+    ratio of the area satisfying the requirements to the area of the square, which is 2.
+    \begin{enumerate}
+        \item The circle $x^2 + y^2 < 1$ has area $\pi$ hence the answer is $\frac{\pi}{4}$.
+        \item The line $2x - y = 0$ passes throught the origin, hence the answer is $\frac{1}{2}$.
+        \item For any $(x, y)$ in the interior of the square, $|x + y| < 2$ hence the probability is 1.
+    \end{enumerate}
+
+    % 4.2
+    \item This is similar to the proof of Theorem 2.2.5.
+    \begin{enumerate}
+        \item \begin{align*}
+            \mathbb{E}[ag_1(X, Y) + bg_2(X, Y) + c] 
+            &= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} 
+            (ag_1(x, y) + bg_2(x, y) + c) f_{X, Y}(x, y) \ dydx \\
+            &= a\int_{-\infty}^{\infty} g_1(x, y) f_{X, Y}(x, y)\ dydx 
+            + b\int_{-\infty}^{\infty} g_2(x, y) f_{X, Y}(x, y) \ dydx \\
+            &\qquad \qquad + c\int_{-\infty}^{\infty} f_{X, Y}(x, y) \ dydx \\
+            &= a \mathbb{E}[g_1(x, y)] + b \mathbb{E}[g_2(x, y)] + c.
+        \end{align*}
+
+        \item 
+    \end{enumerate}
+
+    % 4.3
+    \item For a fair die, each sample point in the sample space of size 36 has an equally likely chance of 
+    happening. Therefore we get that 
+    \begin{align*}
+        P(X = 0, Y = 0)
+        &= P(\{
+            (1, 1), (1, 3), (1, 5), (2, 1), (2, 3), (2, 5)
+        \}) \\
+        &= \frac{6}{36} = \frac{1}{6}.
+    \end{align*}
+    \begin{align*}
+        P(X = 0, Y = 1) 
+        &= P(\{
+            (1, 2), (1, 4), (1, 6), (2, 2), (2, 4), (2, 6)
+        \}) \\
+        &= \frac{6}{36} = \frac{1}{6}.
+    \end{align*}
+    \begin{align*}
+        P(X = 1, Y = 0) 
+        &= P(\{
+            (3, 1), (3, 3), (3, 5), (4, 1), (4, 3), (4, 5), (5, 1), (5, 3), (5, 5), (6, 1), (6, 3), (6, 5)
+        \}) \\
+        &= \frac{12}{36} = \frac{1}{3}.
+    \end{align*}
+    \begin{align*}
+        P(X = 1, Y = 1) 
+        &= P(\{
+            (3, 2), (3, 4), (3, 6), (4, 2), (4, 4), (4, 6), (5, 2), (5, 4), (5, 6), (6, 2), (6, 4), (6, 6)
+        \}) \\
+        &= \frac{12}{36} = \frac{1}{3}.
+    \end{align*}
+    This matches the pmf of Example 4.1.5.
+
+    % 4.4
+    \item \begin{enumerate}
+        \item \begin{align*}
+            \int_{0}^{1} \int_{0}^{2} x + 2y \ dxdy
+            &= \int_{0}^{1} \Bigl[ \frac{1}{2}x^2 + 2xy \Bigr]_0^2 \ dy \\
+            &= \int_{0}^{1} 2 + 4y \ dy \\
+            &= [2y + 2y^2]_0^1 \\
+            &= 4,
+        \end{align*}
+        which directly implies that $C = \frac{1}{4}$.
+
+        \item \begin{align*}
+            f_X(x)
+            &= \int_{0}^{1} \frac{1}{4}(x + 2y) \ dy \\
+            &= \frac{1}{4} \Bigl[ xy + y^2 \Bigr]_0^1 \\
+            &= \frac{1}{4} (x + 1), \ 0 < x < 2.
+        \end{align*}
+
+        \item This depends on the values of $x$ and $y$. If either $x$ or $y$ is $\leq 0$, the cdf is just 
+        0. If $x \geq 2$ and $y \geq 1$, the cdf is 1. If $x \in (0, 2)$ and $y \geq 1$
+
+        \item 
+    \end{enumerate}
+
+
 \end{enumerate}
 
 \end{document}

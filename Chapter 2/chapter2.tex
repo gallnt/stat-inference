@@ -930,10 +930,32 @@
     \end{enumerate}
 
     % 2.39
-    \item 
+    \item \begin{enumerate}
+        \item \[ \frac{d}{dx} \int_{0}^{x} e^{-\lambda t} \ dt 
+        = \frac{d}{dx} \Bigl[ -\frac{1}{\lambda}e^{-\lambda t} \Bigr]_0^x 
+        = \frac{d}{dx} \Bigl( -\frac{1}{\lambda}e^{-\lambda x} + \frac{1}{\lambda} \Bigr)
+        = e^{-\lambda x}. \]
+
+        \item \[ \frac{d}{d\lambda} \int_{0}^{\infty} e^{-\lambda t} \ dt 
+        = \frac{d}{d\lambda} \Bigl[ -\frac{1}{\lambda}e^{-\lambda t} \Bigr]_0^{\infty}
+        = \frac{d}{d\lambda} \Bigl( \frac{1}{\lambda} \Bigr) 
+        = -\frac{1}{\lambda^2}.
+        \]
+
+        \item \[ \frac{d}{dt} \int_{t}^{1} \frac{1}{x^2} \ dx 
+        = \frac{d}{dt} \Bigl[ -\frac{1}{x} \Bigr]_t^1 
+        = \frac{d}{dt} \Bigl( -1 + \frac{1}{t} \Bigr) 
+        = -\frac{1}{t^2}. \]
+
+        \item \[ \frac{d}{dt} \int_{1}^{\infty} \frac{1}{(x - t)^2} \ dx 
+        = \frac{d}{dt} \Bigl[ -\frac{1}{x - t} \Bigr]_1^{\infty} 
+        = \frac{d}{dt} \Bigl( \frac{1}{1 - t} \Bigr) 
+        = \frac{1}{(1 - t)^2}. \]
+    \end{enumerate}
     
     % 2.40
-    \item This statement is only true for $x = 0, 1, \cdots, n - 1$.
+    \item This statement is only true for $x = 0, 1, \cdots, n - 1$. Starting from the right hand side, 
+    using integration by parts, we have 
 
 \end{enumerate}
 
