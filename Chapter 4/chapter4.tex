@@ -88,11 +88,74 @@
         \end{align*}
 
         \item This depends on the values of $x$ and $y$. If either $x$ or $y$ is $\leq 0$, the cdf is just 
-        0. If $x \geq 2$ and $y \geq 1$, the cdf is 1. If $x \in (0, 2)$ and $y \geq 1$
+        0. If $x \geq 2$ and $y \geq 1$, the cdf is 1. The remaining cases are:
 
-        \item 
+        - $x \in (0, 2)$ and $y \geq 1$.
+        \begin{align*}
+            F_{X, Y}(x, y) 
+            &= \int_{0}^{x} \int_{0}^{1} \frac{1}{4}(u + 2v) \ dvdu \\
+            &= \frac{1}{4} \int_{0}^{x} [uv + v^2]_0^1 \ du \\
+            &= \frac{1}{4} \int_{0}^{x} u + 1 \ du \\
+            &= \frac{1}{4} \Bigl[ \frac{1}{2}u^2 + u \Bigr]_0^x \\
+            &= \frac{1}{8}x^2 + \frac{1}{4}x.
+        \end{align*}
+
+        - $x \geq 1$ and $y \in (0, 1)$.
+        \begin{align*}
+            F_{X, Y}(x, y) 
+            &= \int_{0}^{y} \int_{0}^{2} \frac{1}{4}(u + 2v) \ dudv \\
+            &= \frac{1}{4} \int_{0}^{y} \Bigl[ \frac{1}{2}u^2 + 2uv \Bigr]_0^2 \ dv \\
+            &= \frac{1}{4} \int_{0}^{y} 2 + 4v \ dv \\
+            &= \frac{1}{4} [2v + 2v^2]_0^y \\
+            &= \frac{1}{2}y^2 + \frac{1}{2}y.
+        \end{align*}
+
+        - $x \in (0, 2)$ and $y \in (0, 1)$.
+        \begin{align*}
+            F_{X, Y}(x, y) 
+            &= \int_{0}^{x} \int_{0}^{y} \frac{1}{4}(u + 2v) \ dvdu \\
+            &= \frac{1}{4} \int_{0}^{x} [uv + v^2]_0^y \ du \\
+            &= \frac{1}{4} \int_{0}^{x} uy + y^2 \ du \\
+            &= \frac{1}{4} \Bigl[ \frac{1}{2}u^2 y + uy^2 \Bigr]_0^x \\
+            &= \frac{1}{8}x^2 y + \frac{1}{4}xy^2.
+        \end{align*}
+        All in all, the cdf for y is 
+        \[ F_{X, Y}(x, y) = \begin{cases}
+            0 &\text{ if } x \leq 0 \text{ or } y \leq 0, \\
+            \frac{1}{8}x^2 y + \frac{1}{4}xy^2 &\text{ if } 0 < x < 2 \text{ and } 0 < y < 1, \\
+            \frac{1}{2}y^2 + \frac{1}{2}y &\text{ if } x \geq 1 \text{ and } 0 < y < 1, \\
+            \frac{1}{8}x^2 + \frac{1}{4}x &\text{ if } 0 < x < 2 \text{ and } y \geq 1. \\
+            1 &\text{ if } x, y \geq 1.
+        \end{cases}\]
+
+        \item Since $X \in (0, 2)$, $Z = \frac{9}{(X + 1)^2} \in (1, 9)$.
     \end{enumerate}
 
+    % 4.5
+    \item \begin{enumerate}
+        \item \begin{align*}
+            P(X > \sqrt{Y})
+            &= \int_{0}^{1} \int_{0}^{x^2} x + y \ dydx \\
+            &= \int_{0}^{1} \Bigl[ xy + \frac{1}{2}y^2 \Bigr]_0^{x^2} \ dx \\
+            &= \int_{0}^{1} x^3 + \frac{1}{2}x^4 \ dx \\
+            &= \Bigl[ \frac{1}{4}x^4 + \frac{1}{10}x^5 \Bigr]_0^1 \\
+            &= \frac{7}{20}.
+        \end{align*}
+
+        \item \begin{align*}
+            P(X^2 < Y < X) 
+            &= \int_{0}^{1} \int_{x^2}^{x} 2x \ dydx \\
+            &= \int_{0}^{1} [2xy]_x^{x^2} \ dx \\
+            &= \int_{0}^{1} 2x^2 - 2x^3 \ dx \\
+            &= \Bigl[ \frac{2}{3}x^3 - \frac{1}{2}x^4 \Bigr]_0^1 \\
+            &= \frac{1}{6}.
+        \end{align*}
+    \end{enumerate}
+
+    % 4.6
+    \item Let $A$, $B$ be the time that A and B arrives respectively. Then $A, B \sim \text{Uniform}(1, 2)$.
+    Moreover, $A$ and $B$ are independent hence their joint distribution is the product of their marginals. 
+    That is, 
 
 \end{enumerate}
 
