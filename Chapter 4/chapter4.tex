@@ -156,6 +156,112 @@
     \item Let $A$, $B$ be the time that A and B arrives respectively. Then $A, B \sim \text{Uniform}(1, 2)$.
     Moreover, $A$ and $B$ are independent hence their joint distribution is the product of their marginals. 
     That is, 
+    \[ f_{A, B}(a, b) = \frac{1}{4}, \ a, b \in (1, 2). \]
+    Let $X$ be the amount of time that A waits for B. Then for $x \leq 0$, 
+
+    % 4.7
+    \item In this question we will measure in the number of minutes past 8AM. Then 
+    $X \sim \text{Uniform}(0, 30)$, $Y \sim \text{Uniform}(40, 50)$. Since $X$ and $Y$ are independent, 
+    their joint pdf is 
+    \[ f_{X, Y}(x, y) = \frac{1}{300}, \ (x, y) \in (0, 30) \times (40, 50). \]
+    Then we get that  
+    \begin{align*}
+        P(\text{Arrives at work before 9AM}) 
+        &= P(X + Y < 60) \\
+        &= \int_{40}^{50} \int_{0}^{60 - y} \frac{1}{300} \ dxdy \\
+        &= \frac{1}{2}.
+    \end{align*}
+
+    % 4.8
+    \item \begin{enumerate}
+        \item 
+    \end{enumerate}
+
+    % 4.9
+    \item \begin{align*}
+        & P(a \leq X \leq b, c \leq Y \leq d) \\
+        =& P(X \leq b, c \leq Y \leq d) - P(X \leq a, c \leq Y \leq d) \\
+        =& P(X \leq b, Y \leq d) - P(X \leq a, Y \leq d) 
+        - [ P(X \leq a, Y \leq d) - P(X \leq a, Y \leq c)] \\
+        =& F_{X, Y}(b, d) - F_{X, Y}(a, d) - F_{X, Y}(b, c) + F_{X, Y}(a, c) \\
+        =& F_X(b)F_Y(d) - F_X(b)F_Y(d) - F_X(b)F_Y(d) + F_X(b)F_Y(d) \\
+        =& (F_X(b) - F_X(a))(F_Y(d) - F_Y(c)) \\
+        =& P(a \leq X \leq b) P(c \leq Y \leq d).
+    \end{align*}
+
+    % 4.10
+    \item \begin{enumerate}
+        \item From the table, it is clear that $P(X = 2, Y = 3) = 0$. However, 
+        $P(X = 2)P(X = 3) = \frac{1}{3} \cdot \frac{1}{2} = \frac{1}{6} \neq 0$. Therefore $X$ and $Y$ 
+        are dependent.
+
+        \item \[ \begin{tabular}{c c | c c c}
+            &  &  & $U$ & \\
+            &  & 1 & 2 & 3 \\
+            \hline
+            & 2 & $\frac{1}{12}$ & $\frac{1}{6}$ & $\frac{1}{12}$ \\
+            $V$ & 3 & $\frac{1}{12}$ & $\frac{1}{6}$ & $\frac{1}{12}$ \\
+            & 4 & $\frac{1}{12}$ & $\frac{1}{6}$ & $\frac{1}{12}$
+        \end{tabular} \]
+        This is just the product of the marginals hence $X$ and $Y$ have to be independent.
+    \end{enumerate}
+
+    % 4.11
+    \item The support of $U$ is $\{1, 2, 3, \dots\}$ while the support for $V$ is $\{u + 1, u + 2, 
+    \dots\}$. They are clearly not random (in fact, $V$ depends heavily on $U$).
+
+    % 4.12
+    \item Suppose the length of the stick is 1, and let $X, Y$ be the two points where the stick is 
+    broken. Then $X, Y \sim \text{Uniform}(0, 1)$, and since they are independent, $(X, Y)$ is uniformly  
+    distributed on the unit square in $\mathbb{R}^2$. For a valid triangle, the sum of the length of any 
+    two sides must be greater than the third. This is true if and only if the length of each piece is less 
+    than $\frac{1}{2}$. 
+
+    We analyze when $x < y$ as the case for $x > y$ will be identical. For $x < y$, we need that 
+    $x < \frac{1}{2}, y - x < \frac{1}{2}, \text{ and } 1 - y < \frac{1}{2}$. Graphing this on the unit 
+    square and calculating the area gives a triangle with vertices $(0, \frac{1}{2}), 
+    (\frac{1}{2}, \frac{1}{2}), (\frac{1}{2}, 1)$, and its area is $\frac{1}{8}$. Now adding the case where 
+    $x > y$, the probability that the pieces can be put together into a triangle is just 
+    $2 \cdot \frac{1}{8} = \frac{1}{4}$.
+
+    % 4.13
+    \item \begin{enumerate}
+        \item 
+    \end{enumerate}
+
+    % 4.14 
+    \item 
+
+    % 4.15
+    \item For the distribution of $X|X + Y$, 
+
+    % 4.16
+    \item 4.16
+    
+    % 4.17
+    \item 4.17
+    
+    % 4.18
+    \item We can see that $f(x, y) \geq 0$ for all $x, y > 0$: The numerator is always nonnegative as 
+    $g(x)$ is nonnegative, and the denominator is always greater than 0. Now we show that $f(x, y)$ 
+    integrates to 1: 
+    \begin{align*}
+        \int_{0}^{\infty} \int_{0}^{\infty} f(x, y) \ dxdy
+        &= \int_{0}^{\infty} \int_{0}^{\infty} \frac{2g(\sqrt{x^2 + y^2})}{\pi \sqrt{x^2 + y^2}} \ dxdy \\ 
+        &= \frac{2}{\pi} \int_{0}^{\infty} \int_{0}^{\pi / 2} \frac{g(r)}{r} \cdot r \ d\theta dr \\
+        &= \frac{2}{\pi} \int_{0}^{\pi / 2} \int_{0}^{\infty} g(r) \ drd\theta \\
+        &= \frac{2}{\pi} \int_{0}^{\pi / 2} 1 \ d\theta \\
+        &= 1.
+    \end{align*}
+
+    % 4.19
+    
+    % 4.20
+    \item 4.20
+    
+    % 4.21
+    \item 4.21ß
+
 
 \end{enumerate}
 

@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage{amssymb}
 \usepackage{amsmath}
-\usepackage[margin=1.5in]{geometry}
+\usepackage[margin=1in]{geometry}
 
 \DeclareMathOperator{\var}{Var}
 \DeclareMathOperator{\corr}{Corr}
@@ -49,13 +49,130 @@
 
     % 5.6
     \item \begin{enumerate}
-        \item 
+        \item Set $Z = X - Y$, $W = X$. Then the Jacobian of $(X, Y)$ to $(Z, W)$ is 
     \end{enumerate}
 
     % 5.7
     \item \begin{enumerate}
         \item 
     \end{enumerate}
+
+    % 5.8
+    \item 5.8
+    
+    % 5.9
+    \item 5.9
+
+    % 5.10
+    \item 5.10
+    
+    % 5.11
+    \item 5.11
+    
+    % 5.12
+    \item First note that since $X_1, \cdots, X_n$ are $N(0, 1)$, $\bar{X} \sim N(0, \frac{1}{n})$. In 
+    particular, $Y_1 = |\bar{x}|$ is a folded normal distribution with mean 0 and variance $\frac{1}{n}$. 
+    Then we can directly obtain that the expectation for $Y_1$ is 
+    \[ \mathbb{E}[Y_1] = \sqrt{\frac{2}{\pi n}}. \]
+    Similarly, we can see the $Y_2$ is the average of $n$ folded normals with mean 0 and variance 1, so 
+    \[ \mathbb{E}[Y_2] = \frac{1}{n} \bigl( n\sqrt{\frac{2}{\pi}} \bigr) = \sqrt{\frac{2}{\pi}}. \]
+    From the above we can see clearly that $\mathbb{E}[Y_1] \leq \mathbb{E}[Y_2]$.
+
+    % 5.13
+    \item 5.13
+    
+    % 5.14
+    \item 5.14
+    
+    % 5.15
+    \item 5.15
+    
+    % 5.16
+    \item \begin{enumerate}
+        \item \[ (X_1 - 1)^2 + \bigl( \frac{X_2 - 2}{2} \bigr)^2 + \bigl( \frac{X_3 - 3}{3} \bigr)^2 
+        \sim \chi_3^2. \]
+
+        \item \[ \frac{X_1 - 1}{\sqrt{\bigl( \frac{X_2 - 2}{2} \bigr)^2 + \bigl( \frac{X_3 - 3}{3} \bigr)^2}
+        \big/ 2} \sim t_2. \]
+
+        \item Since $F_{1, 2} \sim T_2^2$, squaring the random variable from part (b) gives the result.
+    \end{enumerate}
+    
+    % 5.17
+    \item \begin{enumerate}
+        \item \[ f_X(x) = \frac{\Gamma(\frac{p + q}{2}) p^{p / 2} q^{q / 2} x^{p / 2 - 1}}
+        {\Gamma(\frac{p}{2}) \Gamma(\frac{q}{2}) (q + px)^{(p + q) / 2}}, \ x > 0. \]
+
+        \item We can write $X = \frac{U / p}{V / q}, U \sim \chi_p^2, V \sim \chi_q^2$. Firstly, note that 
+        for $Y \sim \chi_n^2$, 
+        \begin{align*}
+            \mathbb{E}[Y^k] 
+            &= \int_{0}^{\infty} x^k \cdot \frac{x^{n / 2 - 1}e^{-x / 2}}{2^{n / 2} \Gamma(\frac{n}{2})} 
+            \ dx \\
+            &= \int_{0}^{\infty} \frac{x^{n / 2 + k - 1}e^{-x / 2}}{2^{n / 2} \Gamma(\frac{n}{2})} 
+            \ dx \\
+            &= \frac{\Gamma(\frac{n}{2} + k) 2^k}{\Gamma(\frac{n}{2})} \int_{0}^{\infty} 
+            \frac{x^{n / 2 + k - 1}e^{-x / 2}}{2^{n / 2 + k} \Gamma(\frac{n}{2} + k)} \ dx \\
+            &= \frac{\Gamma(\frac{n}{2} + k) 2^k}{\Gamma(\frac{n}{2})}, \ k > -\frac{n}{2}.
+        \end{align*}
+        Plugging in $k = -1$ into $V$ gives $\mathbb{E}[V^{-1}] = \frac{1}{q - 2}$. Then 
+        \begin{align*}
+            E[X] 
+            &= \mathbb{E} \bigl[ \frac{U / p}{V / q} \bigr] \\
+            &= \frac{1}{pq} \cdot \mathbb{E}[U]\mathbb{E}[V] \\
+            &= \frac{q}{q - 2}, \ q > 2.
+        \end{align*}
+
+        As for the variance, first note that 
+        \[ \mathbb{E}[X^2] = \frac{q^2}{p^2} \mathbb{E}[U^2]\mathbb{E}[V^{-2}]. \]
+        From the equation above, plugging in $k = 2$ and $k = -2$ repectively gives 
+        \[ \mathbb{E}[U^2]= \frac{4\Gamma(\frac{p}{2} + 2)}{\Gamma(\frac{p}{2} + 2)} 
+        = 4\bigl( \frac{p}{2} + 1 \bigr) \frac{p}{2} = 2p + p^2, \]
+        \[ \mathbb{E}[V^{-2}] = \frac{2^{-2} \Gamma(\frac{q}{2} - 2)}{\Gamma(\frac{q}{2})} 
+        = \frac{1}{4(\frac{q}{2} - 1)(\frac{q}{2} - 2)} = \frac{1}{(q - 2)(q - 4)}, \ q > 4. \]
+        Finally we get that 
+        \begin{align*}
+            \var{X} 
+            &= \mathbb{E}[X^2] - (\mathbb{E}[X])^2 \\
+            &= \frac{q^2(2p + p^2)}{p^2(q - 2)(q - 4)} - \frac{q^2}{(q - 2)^2} \\
+            &= \frac{2q^2(p + q - 2)}{p(q - 2)^2 (q - 4)}, \ q > 4.
+        \end{align*}
+
+        \item Let $U$ and $V$ be as given above. Then 
+        \[ \frac{1}{X} = \frac{V / q}{U / p} \sim F_{q, p}. \]
+
+        \item 
+    \end{enumerate}
+    
+    % 5.18
+    \item First note that if $X \sim t_p$, $X \sim \frac{Z}{\sqrt{V / p}}, \ V \sim \chi_p^2$, with $Z$ and 
+    $V$ independent. The moments for $V$ can be obtained from the equation in part (b) of Exercise 5.17.
+    \begin{enumerate}
+        \item \[ \mathbb{E}[X] = \sqrt{p}\mathbb{E}[Z]\mathbb{E}[\frac{1}{\sqrt{V}}] = 0. \]
+        \[ \var{X} = \mathbb{E}[X^2] = \mathbb{E}[\frac{Z^2}{V / p}] 
+        = p \mathbb{E}[Z^2]\mathbb{E}[V^{-1}] = \frac{p}{p - 2}, \ p > 2. \]
+
+        \item \[ X^2 \sim \frac{Z^2}{V / p} \sim \frac{\chi_1^2 / 1}{\chi_p^2 / p} \sim F_{1, p}. \]
+
+        \item 
+    \end{enumerate}
+    
+    % 5.19
+    \item \begin{enumerate}
+        \item $\chi_p^2 \sim \chi_q^2 + \chi_d^2$ where $\chi_q^2, \chi_d^2$ are independent random 
+        variables and $d = p - q$. Since $\chi_d^2$ is a strictly positive random variable, for all $a > 0$, 
+        \[ P(\chi_p^2 > a) = P(\chi_q^2 + \chi_d^2 > a) > P(\chi_q^2 > a). \]
+
+        \item 
+    \end{enumerate}
+    
+    % 5.20
+    \item 5.20
+    
+    % 5.20
+    \item 5.21
+    
+    
 \end{enumerate}
 
 \end{document}
